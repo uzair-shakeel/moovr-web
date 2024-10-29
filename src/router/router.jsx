@@ -6,6 +6,8 @@ import Verification from "../pages/verification";
 import Name from "../pages/name";
 import Ride from "../pages/ride";
 import RideCarSelection from "../pages/ride-car-selection";
+import MeetDriverScreen from "../pages/meet-the-driver";
+import StartRideScreen from "../pages/start-ride";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/name" element={<Name />} />
           <Route path="/ride" element={<Ride />} />
           <Route path="/ride-car" element={<RideCarSelection />} />
+          <Route path="/ride-car/driver" element={<MeetDriverScreen />} />
+          <Route path="/ride-car/start-ride" element={<StartRideScreen />} />
         </Routes>
       </div>
     </Router>
