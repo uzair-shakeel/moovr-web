@@ -18,7 +18,7 @@ const RideSelectionScreen = () => {
             title="Map"
             src="/images/full-map-img.png"
             className="w-full h-full"
-          />
+          />   
         </div>
 
         {/* Floating Cards */}
