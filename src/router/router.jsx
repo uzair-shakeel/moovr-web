@@ -10,6 +10,8 @@ import MeetDriverScreen from "../pages/meet-the-driver";
 import StartRideScreen from "../pages/start-ride";
 import StartDestinationScreen from "../pages/towards-destination";
 import CompletedScreen from "../pages/ride/completed";
+import ReviewScreen from "../pages/ride/review";
+import ThankYouScreen from "../pages/ride/thankyou";
 import DriverBooking from "../pages/driver-booking";
 import DriverConfirmation from "../pages/driver-confirmation";
 import StartJourney from "../pages/start-journey";
@@ -32,6 +34,8 @@ const App = () => {
             element={<StartDestinationScreen />}
           />
           <Route path="/ride-car/completed" element={<CompletedScreen />} />
+          <Route path="/ride-car/review" element={<ReviewScreen />} />
+          <Route path="/ride-car/thank-you" element={<ThankYouScreen />} />
           <Route path="/ride-car/drivers" element={<DriverBooking />} />
           <Route path="/ride-car/start-journey" element={<StartJourney />} />
           <Route
