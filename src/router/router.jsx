@@ -5,6 +5,7 @@ import Signup from "../pages/register";
 import Verification from "../pages/verification";
 import Name from "../pages/name";
 import Ride from "../pages/ride";
+import RideCars from "../pages/ride/cars";
 import RideCarSelection from "../pages/ride-car-selection";
 import MeetDriverScreen from "../pages/meet-the-driver";
 import StartRideScreen from "../pages/start-ride";
@@ -15,17 +16,24 @@ import ThankYouScreen from "../pages/ride/thankyou";
 import DriverBooking from "../pages/driver-booking";
 import DriverConfirmation from "../pages/driver-confirmation";
 import StartJourney from "../pages/start-journey";
+import CarDetail from "../pages/ride/car-details";
+import ConfirmCar from "../pages/ride/confirm-car";
+import HomePage from "../pages/static/Home";
 
 const App = () => {
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verification" element={<Verification />} />
           <Route path="/name" element={<Name />} />
           <Route path="/ride" element={<Ride />} />
+          <Route path="/ride/cars" element={<RideCars />} />
+          <Route path="/ride/cars/details" element={<CarDetail />} />
+          <Route path="/ride/cars/confirm" element={<ConfirmCar />} />
           <Route path="/ride-car" element={<RideCarSelection />} />
           <Route path="/ride-car/driver" element={<MeetDriverScreen />} />
           <Route path="/ride-car/start-ride" element={<StartRideScreen />} />
