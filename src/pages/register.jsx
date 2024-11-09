@@ -20,7 +20,7 @@ const Register = () => {
       <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-5xl h-[550px] grid md:grid-cols-2">
         <div className="hidden md:block">
           <img
-            src="/Signup-BG.jpg"
+            src="/Singup-BG.jpg"
             alt="Login Graphic"
             className="object-cover h-full w-full"
           />
