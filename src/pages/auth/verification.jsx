@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Verification = () => {
   const [code, setCode] = useState(["", "", "", ""]);
@@ -72,12 +73,14 @@ const Verification = () => {
               </button>
             )}
           </div>
-          <button
-            type="submit"
-            className="w-full py-3 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
-          >
-            Verify
-          </button>
+          <Link to={"/name"}>
+            <button
+              type="submit"
+              className="w-full py-3 mt-3 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
+            >
+              Verify
+            </button>
+          </Link>
         </form>
       </div>
     </div>

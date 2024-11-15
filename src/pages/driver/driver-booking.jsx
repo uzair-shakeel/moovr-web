@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../components/header"; // Import your Header component
-import DriverCard from "../components/driver-booking-card"; // Import DriverCard
+import Header from "../../components/header"; // Import your Header component
+import DriverCard from "../../components/driver-booking-card"; // Import DriverCard
 import { BiArrowBack } from "react-icons/bi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 

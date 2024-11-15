@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/header"; // Import your Header component
 import { BiArrowBack } from "react-icons/bi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CarDetail = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -182,9 +183,12 @@ const CarDetail = () => {
             )}
           </div>
 
-          <button className="bg-purple-500 text-white py-3 px-12 rounded-full w-1/3 text-lg font-medium hover:bg-purple-600">
+          <Link
+            to={"/rent/car/confirm"}
+            className="bg-purple-500 text-white py-3 px-12 rounded-full w-1/3 text-lg font-medium hover:bg-purple-600"
+          >
             Rent a Car
-          </button>
+          </Link>
         </div>
       </div>
     </div>

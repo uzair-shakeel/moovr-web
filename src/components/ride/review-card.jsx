@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ReviewCard = () => {
   const [rating, setRating] = useState(0);
@@ -77,9 +78,11 @@ const ReviewCard = () => {
       ></textarea>
 
       {/* Submit Button */}
-      <button className="bg-purple-500 text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600">
-        Submit
-      </button>
+      <Link to={"/ride/thank-you"}>
+        <button className="bg-purple-500 text-white py-3 mt-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600">
+          Submit
+        </button>
+      </Link>
     </div>
   );
 };

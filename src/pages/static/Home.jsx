@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-[1180px] mx-auto">
+      <div className="max-w-[1180px] mx-auto text-start">
         <HeroSection />
         <Discover />
         <Banner />

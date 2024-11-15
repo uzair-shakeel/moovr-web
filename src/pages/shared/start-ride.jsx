@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header"; // Import your Header component
-import StartRideCard from "../components/start-ride-card"; // Import the new DriverInfoCard component
+import Header from "../../components/header"; // Import your Header component
+import StartRideCard from "../../components/start-ride-card"; // Import the new DriverInfoCard component
 
 const StartRideScreen = () => {
   return (

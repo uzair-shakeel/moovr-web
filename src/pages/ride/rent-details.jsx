@@ -94,7 +94,7 @@ const RentDetails = () => {
             <img
               src="/images/BMW.png" // Replace with your car image path
               alt="Rented Car"
-              className="w-full max-w-xs"
+              className="w-full max-w-sm mx-auto"
             />
             {/* <div className="absolute top-4 right-4 bg-purple-500 text-white py-2 px-4 rounded-full text-xs font-medium shadow-lg">
             Tap to unlock

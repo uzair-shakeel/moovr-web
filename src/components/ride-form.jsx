@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const RideForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -100,12 +101,14 @@ const RideForm = () => {
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full py-3 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
-        >
-          Search
-        </button>
+        <Link to={"/ride/selection"}>
+          <button
+            type="submit"
+            className="w-full py-3 mt-4 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
+          >
+            Search
+          </button>
+        </Link>
       </form>
     </div>
   );

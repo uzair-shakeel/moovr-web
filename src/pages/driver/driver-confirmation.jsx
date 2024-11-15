@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/header"; // Import the Header component
+import Header from "../../components/header"; // Import the Header component
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { FaPhoneAlt, FaRegCommentDots, FaStar } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";

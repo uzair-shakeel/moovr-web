@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,36 +24,43 @@ const Header = () => {
           className="h-[40px] w-auto pr-8"
         />
 
-        {/* Navigation */}
         <nav className="hidden md:flex space-x-9">
-          {["Ride", "Rent", "Driver", "Package", "Reserve", "Bill", "More"].map(
-            (navItem) => (
-              <a
-                key={navItem}
-                href="#"
-                onClick={() => handleNavClick(navItem)}
-                className={`flex flex-col items-center justify-center ${
-                  selectedNav === navItem ? "text-purple-500" : "text-gray-700"
-                }`}
-              >
-                <img
-                  src={`/icons/header/${navItem.toLowerCase()}.svg`}
-                  alt={navItem}
-                  className={`w-6 h-6 ${
-                    selectedNav === navItem ? "text-gray-700" : "text-gray-700"
-                  }`}
-                />
-                <span>{navItem}</span>
-              </a>
-            )
-          )}
+          {[
+            { name: "Ride", link: "/ride" },
+            { name: "Rent", link: "/rent/cars" },
+            { name: "Driver", link: "/drivers" },
+            { name: "Package", link: "/package" },
+            { name: "Reserve", link: "/ride" },
+            { name: "Bill", link: "/bill" },
+            { name: "More", link: "/ride" },
+          ].map((navItem) => (
+            <Link
+              key={navItem.name}
+              to={navItem.link}
+              onClick={() => handleNavClick(navItem.name)}
+              className={`flex flex-col items-center justify-center ${
+                selectedNav === navItem.name
+                  ? "text-gray-700 "
+                  : "text-gray-700"
+              }`}
+            >
+              <img
+                src={`/icons/header/${navItem.name.toLowerCase()}.svg`}
+                alt={navItem.name}
+                className="w-5 h-5"
+              />
+              <span>{navItem.name}</span>
+            </Link>
+          ))}
         </nav>
       </div>
 
       <div className="relative">
         {/* Profile Button */}
         <div className="flex items-center justify-center gap-6">
-          <img src="/icons/header/wallet.svg" alt="" />
+          <Link to={"/wallet"}>
+            <img src="/icons/header/wallet.svg" alt="" />
+          </Link>
           <button
             onClick={toggleDropdown}
             className="flex items-center space-x-2"
@@ -98,10 +106,13 @@ const Header = () => {
                 <img src="/icons/header/legal.svg" alt="" />
                 <span>Legal</span>
               </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4">
+              <Link
+                to={"/"}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
+              >
                 <img src="/icons/header/logout.svg" alt="" />
                 <span>Log out</span>
-              </li>
+              </Link>
             </ul>
           </div>
         )}

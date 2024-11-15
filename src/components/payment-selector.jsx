@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PaymentSelector = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -88,9 +89,11 @@ const PaymentSelector = () => {
       </div>
 
       {/* Action Button */}
-      <button className="bg-purple-500 w-full text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-purple-600">
-        Select MoovR
-      </button>
+      <Link to={"/ride/meet"}>
+        <button className="bg-purple-500 w-full text-white py-3 px-4 rounded-full text-sm font-semibold hover:bg-purple-600">
+          Select MoovR
+        </button>
+      </Link>
     </div>
   );
 };

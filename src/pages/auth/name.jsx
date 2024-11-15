@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Name = () => {
   const [firstName, setFirstName] = useState("");
@@ -38,12 +39,14 @@ const Name = () => {
             onChange={(e) => setLastName(e.target.value)}
             className="w-full px-4 py-2 border rounded-full bg-gray-100 focus:outline-none"
           />
-          <button
-            type="submit"
-            className="w-full py-3 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
-          >
-            Done
-          </button>
+          <Link to={"/ride"}>
+            <button
+              type="submit"
+              className="w-full py-3 mt-4 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
+            >
+              Done
+            </button>
+          </Link>
         </form>
       </div>
     </div>

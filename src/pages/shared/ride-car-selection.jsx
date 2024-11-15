@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/header"; // Import your Header component
-import RideOptions from "../components/ride-options";
-import PaymentSelector from "../components/payment-selector";
+import Header from "../../components/header"; // Import your Header component
+import RideOptions from "../../components/ride-options";
+import PaymentSelector from "../../components/payment-selector";
 
 const RideSelectionScreen = () => {
   return (

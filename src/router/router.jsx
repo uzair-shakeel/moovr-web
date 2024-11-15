@@ -1,27 +1,33 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "../pages/login";
-import Signup from "../pages/register";
-import Verification from "../pages/verification";
-import Name from "../pages/name";
-import Ride from "../pages/ride";
+import Login from "../pages/auth/login";
+import Signup from "../pages/auth/register";
+import Verification from "../pages/auth/verification";
+import Name from "../pages/auth/name";
+import Ride from "../pages/ride/ride";
 import Booked from "../pages/ride/booked";
-import RideCars from "../pages/ride/cars";
-import RideCarSelection from "../pages/ride-car-selection";
+import RideCars from "../pages/rent/cars";
+import RideCarSelection from "../pages/shared/ride-car-selection";
 import RideDetail from "../pages/ride/rent-details";
-import MeetDriverScreen from "../pages/meet-the-driver";
-import StartRideScreen from "../pages/start-ride";
+import MeetDriverScreen from "../pages/shared/meet-the-driver";
+import StartRideScreen from "../pages/shared/start-ride";
 import StartDestinationScreen from "../pages/towards-destination";
-import CompletedScreen from "../pages/ride/completed";
-import ReviewScreen from "../pages/ride/review";
-import ThankYouScreen from "../pages/ride/thankyou";
-import DriverBooking from "../pages/driver-booking";
-import DriverConfirmation from "../pages/driver-confirmation";
-import StartJourney from "../pages/start-journey";
-import CarDetail from "../pages/ride/car-details";
-import ConfirmCar from "../pages/ride/confirm-car";
+import CompletedScreen from "../pages/shared/completed";
+import ReviewScreen from "../pages/shared/review";
+import ThankYouScreen from "../pages/shared/thankyou";
+import DriverBooking from "../pages/driver/driver-booking";
+import DriverConfirmation from "../pages/driver/driver-confirmation";
+import StartJourney from "../pages/shared/start-journey";
+import CarDetail from "../pages/rent/car-details";
+import ConfirmCar from "../pages/rent/confirm-car";
 import HomePage from "../pages/static/Home";
 import Wallet from "../pages/Wallet";
+import PackageDelivery from "../pages/package/package-delivery";
+import PackageBooked from "../pages/package/package-booked";
+import ConfirmPickup from "../pages/package/confirm-pickup";
+import Bill from "../pages/Bill/bill";
+import BillDetails from "../pages/bill/bill-details";
+import Activity from "../pages/activity/activity";
 
 const App = () => {
   return (
@@ -34,28 +40,31 @@ const App = () => {
           <Route path="/verification" element={<Verification />} />
           <Route path="/name" element={<Name />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/package" element={<PackageDelivery />} />
+          <Route path="/package/booked" element={<PackageBooked />} />
+          <Route path="/package/pickup" element={<ConfirmPickup />} />
+          <Route path="/bill" element={<Bill />} />
+          <Route path="/bill/details" element={<BillDetails />} />
+          <Route path="/activity" element={<Activity />} />
           <Route path="/ride" element={<Ride />} />
-          <Route path="/ride/cars" element={<RideCars />} />
+          <Route path="/ride/selection" element={<RideCarSelection />} />
+          <Route path="/ride/meet" element={<MeetDriverScreen />} />
+          <Route path="/ride/start" element={<StartRideScreen />} />
           <Route path="/ride/booked" element={<Booked />} />
-          <Route path="/ride/cars/details" element={<CarDetail />} />
-          <Route path="/ride/cars/confirm" element={<ConfirmCar />} />
-          <Route path="/ride-car" element={<RideCarSelection />} />
-          <Route path="/ride-car/detail" element={<RideDetail />} />
-          <Route path="/ride-car/driver" element={<MeetDriverScreen />} />
-          <Route path="/ride-car/start-ride" element={<StartRideScreen />} />
+          <Route path="/ride/completed" element={<CompletedScreen />} />
+          <Route path="/ride/review" element={<ReviewScreen />} />
+          <Route path="/ride/thank-you" element={<ThankYouScreen />} />
+          <Route path="/rent/cars" element={<RideCars />} />
+          <Route path="/rent/car/details" element={<CarDetail />} />
+          <Route path="/rent/car/confirm" element={<ConfirmCar />} />
+          <Route path="/rent/car/detail" element={<RideDetail />} />
           <Route
             path="/ride-car/towards-destination"
             element={<StartDestinationScreen />}
           />
-          <Route path="/ride-car/completed" element={<CompletedScreen />} />
-          <Route path="/ride-car/review" element={<ReviewScreen />} />
-          <Route path="/ride-car/thank-you" element={<ThankYouScreen />} />
-          <Route path="/ride-car/drivers" element={<DriverBooking />} />
-          <Route path="/ride-car/start-journey" element={<StartJourney />} />
-          <Route
-            path="/ride-car/drivers/confirmation"
-            element={<DriverConfirmation />}
-          />
+          <Route path="/drivers" element={<DriverBooking />} />
+          <Route path="/driver/start-journey" element={<StartJourney />} />
+          <Route path="/driver/confirmation" element={<DriverConfirmation />} />
         </Routes>
       </div>
     </Router>

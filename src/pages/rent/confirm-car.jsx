@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import { BiArrowBack } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ConfirmCar = () => {
   return (
@@ -72,9 +73,12 @@ const ConfirmCar = () => {
 
           {/* Confirm Button */}
           <div className="flex justify-center mt-8">
-            <button className="bg-purple-500 text-white py-3 px-16 rounded-full font-medium hover:bg-purple-600">
+            <Link
+              to={"/rent/car/detail"}
+              className="bg-purple-500 text-white py-3 px-16 rounded-full font-medium hover:bg-purple-600"
+            >
               Confirm
-            </button>
+            </Link>
           </div>
         </div>
       </div>

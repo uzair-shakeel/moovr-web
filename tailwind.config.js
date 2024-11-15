@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primaryPurple: "#A75AF2", // You can name it 'primary' or any other meaningful name
+        darkPurple: "#572083", // You can name it 'primary' or any other meaningful name
       },
     },
   },

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/header"; // Import your Header component
 import { BiArrowBack } from "react-icons/bi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Sample data for cars
 const cars = [
@@ -19,7 +20,6 @@ const cars = [
     price: 50,
     image: "/images/BMW.png", // Replace with actual path
   },
-  // Add more car objects as needed
 ];
 
 const RentCars = () => {
@@ -95,39 +95,41 @@ const RentCars = () => {
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center">
           {Array.from({ length: 12 }).map((_, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-4 flex flex-col "
-            >
-              <img
-                src={cars[index % cars.length].image}
-                alt={cars[index % cars.length].name}
-                className="w-full h-40 object-cover mb-4"
-              />
-              <h2 className="font-semibold text-lg text-gray-800">
-                {cars[index % cars.length].name}
-              </h2>
-              <div className="flex gap-2 pt-3 items-center">
-                <img src="/icons/ride/map-pin.svg" />
-                <p className="text-sm text-gray-500">
-                  {cars[index % cars.length].location}
-                </p>
-              </div>
-              <div className="flex items-center justify-between w-full mt-2">
-                <div className="flex gap-2 items-center">
-                  <img src="/icons/ride/seats.svg" alt="" />
-                  <p className="text-gray-700">
-                    {cars[index % cars.length].seats} seats
+            <Link to={"/rent/car/details"}>
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg p-4 flex flex-col "
+              >
+                <img
+                  src={cars[index % cars.length].image}
+                  alt={cars[index % cars.length].name}
+                  className="w-full h-40 object-cover mb-4"
+                />
+                <h2 className="font-semibold text-lg text-gray-800">
+                  {cars[index % cars.length].name}
+                </h2>
+                <div className="flex gap-2 pt-3 items-center">
+                  <img src="/icons/ride/map-pin.svg" />
+                  <p className="text-sm text-gray-500">
+                    {cars[index % cars.length].location}
                   </p>
                 </div>
-                <div className="flex gap-2 items-center">
-                  <img src="/icons/ride/coins.svg" alt="" />
-                  <p className="font-medium text-gray-900">
-                    ₦{cars[index % cars.length].price}/h
-                  </p>
+                <div className="flex items-center justify-between w-full mt-2">
+                  <div className="flex gap-2 items-center">
+                    <img src="/icons/ride/seats.svg" alt="" />
+                    <p className="text-gray-700">
+                      {cars[index % cars.length].seats} seats
+                    </p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <img src="/icons/ride/coins.svg" alt="" />
+                    <p className="font-medium text-gray-900">
+                      ₦{cars[index % cars.length].price}/h
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

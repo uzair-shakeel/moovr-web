@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/header";
-import Carousel from "../components/carousel";
-import RideForm from "../components/ride-form";
-import Map from "../components/map";
+import Header from "../../components/header";
+import Carousel from "../../components/carousel";
+import RideForm from "../../components/ride-form";
+import Map from "../../components/map";
 
 const Ride = () => {
   return (

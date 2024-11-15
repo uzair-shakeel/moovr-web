@@ -2,9 +2,9 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="grid md:grid-cols-2 gap-12 justify-between items-center px-8 py-16 md:py-24 bg-gray-50">
+    <div className="grid md:grid-cols-2 gap-12 justify-between items-center px-8 py-16 md:py-24 ">
       {/* Left Side - Text & Form */}
-      <div className=" space-y-6 ">
+      <div className=" space-y-6 text-start">
         <h1 className="text-4xl font-bold text-gray-900">
           Ride Smart, Arrive Happy <br /> With MoovR
         </h1>
