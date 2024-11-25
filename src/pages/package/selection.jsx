@@ -2,8 +2,10 @@ import React from "react";
 import Header from "../../components/header"; // Import your Header component
 import RideOptions from "../../components/ride-options";
 import PaymentSelector from "../../components/payment-selector";
+import PackageCars from "../../components/package/selection";
+import PaymentDropdown from "../../components/package/payment";
 
-const RideSelectionScreen = () => {
+const PackageCarSelection = () => {
   return (
     <div className="h-screen w-screen">
       {/* Header */}
@@ -23,14 +25,14 @@ const RideSelectionScreen = () => {
         {/* Floating Cards */}
         <div className="absolute top-[10%] left-[10%]  flex flex-col items-center space-y-4">
           {/* Ride Options */}
-          <RideOptions />
+          <PackageCars />
 
           {/* Payment Selector */}
-          <PaymentSelector pageLink={"/ride/meet"} />
+          <PaymentDropdown pageLink={"/package/booked"} />
         </div>
       </div>
     </div>
   );
 };
 
-export default RideSelectionScreen;
+export default PackageCarSelection;

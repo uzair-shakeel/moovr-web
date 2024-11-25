@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Header from "../../components/header"; // Import your Header component
 import { BiArrowBack } from "react-icons/bi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CarDetail = () => {
+  const navigate = useNavigate();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState("Debit Card");
 
@@ -25,9 +27,12 @@ const CarDetail = () => {
       {/* Main Content */}
       <div className="p-6">
         {/* Back Button */}
-        <div className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100">
-          <BiArrowBack size={23} />
-        </div>
+        <button
+          onClick={() => navigate(-1)}
+          className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100"
+        >
+          <BiArrowBack size={23} /> Back
+        </button>
 
         {/* Car Image Section */}
         <div className="flex justify-center mb-12">
@@ -44,7 +49,7 @@ const CarDetail = () => {
         </div>
 
         {/* Car Details Card */}
-        <div className="grid grid-cols-3 gap-6 bg-white rounded-2xl shadow-md p-6 mb-8">
+        <div className="grid grid-cols-3 gap-6 border-[1.4px] border-gray-200 bg-white rounded-2xl shadow-sm p-6 mb-8">
           {/* Car Details */}
           <div>
             <div className="flex justify-between items-center">
@@ -70,7 +75,7 @@ const CarDetail = () => {
             <div className="grid grid-cols-3 gap-4">
               <div className="bg-babyPurple  p-5 space-y-4 rounded-lg text-center">
                 <img
-                  src="/icons/ride/seats.svg"
+                  src="/icons/rent/seats.svg"
                   alt=""
                   className="h-[20px] w-auto mx-auto"
                 />
@@ -78,7 +83,7 @@ const CarDetail = () => {
               </div>
               <div className="bg-babyPurple  p-5 space-y-4 rounded-lg text-center">
                 <img
-                  src="/icons/ride/gears.svg"
+                  src="/icons/rent/gears.svg"
                   alt=""
                   className="h-[20px] w-auto mx-auto"
                 />
@@ -86,7 +91,7 @@ const CarDetail = () => {
               </div>
               <div className="bg-babyPurple  p-5 space-y-4 rounded-lg text-center">
                 <img
-                  src="/icons/ride/speedometer.svg"
+                  src="/icons/rent/speedometer.svg"
                   alt=""
                   className="h-[20px] w-auto mx-auto"
                 />
@@ -97,7 +102,7 @@ const CarDetail = () => {
         </div>
 
         {/* Rental Price Section */}
-        <div className="bg-white rounded-2xl shadow-md p-6 flex justify-between items-center">
+        <div className="bg-white rounded-2xl border-[1.4px] border-gray-200 shadow-md p-6 flex justify-between items-center">
           <div className="relative w-1/3">
             <div
               className=" px-4 py-3 space-y-4 bg-white cursor-pointer"
@@ -185,7 +190,7 @@ const CarDetail = () => {
 
           <Link
             to={"/rent/car/confirm"}
-            className="bg-purple-500 text-white py-3 px-12 rounded-full w-1/3 text-lg font-medium hover:bg-purple-600"
+            className="bg-purple-500 flex justify-center text-white py-3 px-12 rounded-full w-1/3 text-lg font-medium hover:bg-purple-600"
           >
             Rent a Car
           </Link>

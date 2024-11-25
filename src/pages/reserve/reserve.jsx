@@ -2,14 +2,13 @@ import React from "react";
 import Header from "../../components/header";
 import Carousel from "../../components/carousel";
 import RideForm from "../../components/ride-form";
-import Map from "../../components/map";
 
-const Ride = () => {
+const Reserve = () => {
   return (
     <div>
       <Header />
       <div className="grid md:grid-cols-2 min-h-[500px] items-center p-4">
-        <RideForm pageLink={"/ride/selection"} />
+        <RideForm pageLink={"/reserve/ride"} />
         {/* <Map /> */}
         <img
           src="/images/map-img.png"
@@ -22,4 +21,4 @@ const Ride = () => {
   );
 };
 
-export default Ride;
+export default Reserve;

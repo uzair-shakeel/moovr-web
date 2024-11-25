@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
+import { Link } from "react-router-dom";
 
 const PackageBooked = () => {
   return (
@@ -18,23 +19,25 @@ const PackageBooked = () => {
 
         <div className="flex ">
           {/* Title and Description */}
-          <div className="text-start mb-10 space-y-3 ">
+          <div className="text-start mb-10 space-y-3 w-full md:w-2/5">
             <h2 className="text-2xl font-semibold text-gray-900 mb-2">
               Get your package ready!
             </h2>
-            <p className="text-gray-500 w-2/3 pb-5">
+            <p className="text-gray-500 w-4/5 pb-5">
               Prepare your package for delivery by securely packing your items
               and labeling them clearly. Ensure all necessary documentation is
               included for a smooth shipping process.
             </p>
             {/* Track Button */}
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-full">
-              Track your package
-            </button>
+            <Link to={"/package/track"}>
+              <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-full">
+                Track your package
+              </button>
+            </Link>
           </div>
 
           {/* Delivery Details */}
-          <div className="w-full max-w-3xl flex justify-between items-center mb-12">
+          <div className="w-full md:w-3/5 max-w-5xl flex justify-between items-center mb-12">
             <div className="text-left">
               <h3 className=" font-semibold mb-5">Delivery details</h3>
               <div className="">
@@ -43,8 +46,7 @@ const PackageBooked = () => {
               </div>
             </div>
 
-            <div className="flex-grow mx-6 mt-5 border-b-4 border-dotted border-[#A75AF2]"></div>
-
+            <img src="/icons/rent/connection.svg" alt="" />
             <div className="text-right mt-5">
               <p>Abuja Transcorp Hill Station</p>
             </div>

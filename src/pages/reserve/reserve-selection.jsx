@@ -3,7 +3,7 @@ import Header from "../../components/header"; // Import your Header component
 import RideOptions from "../../components/ride-options";
 import PaymentSelector from "../../components/payment-selector";
 
-const RideSelectionScreen = () => {
+const ReserveSelection = () => {
   return (
     <div className="h-screen w-screen">
       {/* Header */}
@@ -26,11 +26,11 @@ const RideSelectionScreen = () => {
           <RideOptions />
 
           {/* Payment Selector */}
-          <PaymentSelector pageLink={"/ride/meet"} />
+          <PaymentSelector pageLink={'/reserve/driver'} />
         </div>
       </div>
     </div>
   );
 };
 
-export default RideSelectionScreen;
+export default ReserveSelection;

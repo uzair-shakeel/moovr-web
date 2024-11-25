@@ -13,7 +13,7 @@ const PackageDelivery = () => {
         {/* Back Button */}
         <div className="flex items-center  mb-4 cursor-pointer">
           <FaArrowLeft className="text-lg mr-2" />
-          <span className="text-sm font-medium">Package delivery</span>
+          <span className="text-sm font-medium">Back</span>
         </div>
         <div className="flex items-center ">
           <div className="max-w-[50%]">
@@ -31,7 +31,7 @@ const PackageDelivery = () => {
               {/* Buttons for Sending and Receiving Packages */}
               <div className=" justify-center grid grid-cols-2 space-x-4">
                 <Link
-                  to={"/package/booked"}
+                  to={"/package/pickup"}
                   className="bg-purple-500 text-center hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-full"
                 >
                   Send a package

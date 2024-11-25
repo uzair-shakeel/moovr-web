@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../../components/header"; // Import your Header component
-import RideOptions from "../../components/ride-options";
-import PaymentSelector from "../../components/payment-selector";
+import ReviewCard from "../../components/ride/review-card"; // Import the new DriverInfoCard component
 
-const RideSelectionScreen = () => {
+const ReviewScreen = () => {
   return (
     <div className="h-screen w-screen">
       {/* Header */}
@@ -20,17 +19,14 @@ const RideSelectionScreen = () => {
           />
         </div>
 
-        {/* Floating Cards */}
-        <div className="absolute top-[10%] left-[10%]  flex flex-col items-center space-y-4">
-          {/* Ride Options */}
-          <RideOptions />
-
-          {/* Payment Selector */}
-          <PaymentSelector pageLink={"/ride/meet"} />
+        {/* Floating Driver Info Card */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-4">
+          {/* Driver Info Card */}
+          <ReviewCard />
         </div>
       </div>
     </div>
   );
 };
 
-export default RideSelectionScreen;
+export default ReviewScreen;

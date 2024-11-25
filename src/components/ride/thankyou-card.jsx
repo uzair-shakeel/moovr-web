@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ThankYouCard = () => {
   return (
@@ -10,9 +11,12 @@ const ThankYouCard = () => {
       </div>
       <h2 className="font-semibold text-gray-800 ">Thank You</h2>
       <h2 className="font-semibold text-gray-800 mb-4">For Choosing MoovR</h2>
-      <button className="bg-purple-500 text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600">
+      <Link
+        to={"/ride"}
+        className="bg-purple-500 text-white py-3 px-20 w-full rounded-full text-lg font-semibold hover:bg-purple-600"
+      >
         Go Back
-      </button>
+      </Link>
     </div>
   );
 };

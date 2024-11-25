@@ -1,14 +1,12 @@
 import React from "react";
-import {
-  FaArrowLeft,
-  FaMapMarkerAlt,
-  FaTachometerAlt,
-  FaCogs,
-  FaUsers,
-} from "react-icons/fa"; // Icons for details
+import { FaMapMarkerAlt } from "react-icons/fa"; // Icons for details
 import Header from "../../components/header";
+import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 
 const RentDetails = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen w-screen bg-gray-50">
       {/* Header */}
@@ -16,21 +14,27 @@ const RentDetails = () => {
 
       <section className="p-6 md:p-12">
         {/* Back Button */}
-        <div className="flex items-center mb-4 cursor-pointer">
-          <FaArrowLeft className="text-lg mr-2" />
-          <span className="text-sm font-medium">Details</span>
-        </div>
+        <button
+          onClick={() => navigate(-1)}
+          className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100"
+        >
+          <BiArrowBack size={23} /> Back
+        </button>
 
         {/* Main Content */}
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left Section - Car Details */}
           <div className="bg-gray-50 p-6 rounded-lg shadow-md w-full md:w-1/2 mb-8 md:mb-0">
             {/* Car Name and Location */}
-            <h2 className="text-lg font-semibold">Honda Civic</h2>
-            <p className="text-gray-500 mb-2">82BG879</p>
-            <div className="flex items-center text-gray-500 text-sm mb-4">
-              <FaMapMarkerAlt className="mr-2" />
-              <span>Abuja Continental Hotel</span>
+            <div className="flex items-center justify-between ">
+              <div>
+                <h2 className="text-lg font-semibold">Honda Civic</h2>
+                <p className="text-gray-500 mb-2">82BG879</p>
+              </div>
+              <div className="flex items-center text-gray-500 text-sm mb-4">
+                <FaMapMarkerAlt className="mr-2" />
+                <span>Abuja Continental Hotel</span>
+              </div>
             </div>
 
             {/* Car Description */}
@@ -45,16 +49,16 @@ const RentDetails = () => {
               Specifications
             </h3>
             <div className="flex space-x-4 mb-6">
-              <div className="flex flex-col items-center bg-purple-100 text-purple-700 rounded-lg p-3">
-                <FaUsers className="text-lg" />
+              <div className="flex flex-col space-y-4 items-center justify-center h-[104px] w-[116px] bg-babyPurple rounded-lg">
+                <img src="/icons/rent/seats.svg" alt="" />
                 <span className="text-sm">4 Seats</span>
               </div>
-              <div className="flex flex-col items-center bg-purple-100 text-purple-700 rounded-lg p-3">
-                <FaCogs className="text-lg" />
+              <div className="flex flex-col space-y-4 items-center justify-center h-[104px] w-[116px] bg-babyPurple rounded-lg">
+                <img src="/icons/rent/gears.svg" alt="" />
                 <span className="text-sm">Auto</span>
               </div>
-              <div className="flex flex-col items-center bg-purple-100 text-purple-700 rounded-lg p-3">
-                <FaTachometerAlt className="text-lg" />
+              <div className="flex flex-col space-y-4 items-center justify-center h-[104px] w-[116px] bg-babyPurple rounded-lg">
+                <img src="/icons/rent/speedometer.svg" alt="" />
                 <span className="text-sm">400Km/h</span>
               </div>
             </div>
@@ -65,7 +69,7 @@ const RentDetails = () => {
                 <span className="font-medium">Wed 05, 4:15PM</span>
                 <span className="text-xs">Rent start date/time</span>
               </div>
-              <div className="border-t border-dashed border-gray-300 flex-1 mx-4"></div>
+              <img src="/icons/rent/connection.svg" alt="" />{" "}
               <div className="flex flex-col text-center">
                 <span className="font-medium">Thu 06, 4:15PM</span>
                 <span className="text-xs">Rent end date/time</span>

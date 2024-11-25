@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryPurple: "#A75AF2", // You can name it 'primary' or any other meaningful name
-        darkPurple: "#572083", // You can name it 'primary' or any other meaningful name
+        primaryPurple: "#A75AF2",
+        darkPurple: "#572083",
+        lightPurple: "#F3E9FE",
+        babyPurple: "#F3E9FE",
       },
     },
   },

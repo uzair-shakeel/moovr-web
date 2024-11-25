@@ -2,9 +2,11 @@ import React from "react";
 import Header from "../../components/header";
 import { BiArrowBack } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ConfirmCar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen w-screen bg-gray-50">
       {/* Header */}
@@ -13,9 +15,12 @@ const ConfirmCar = () => {
       {/* Main Content */}
       <div className="p-6">
         {/* Back Button */}
-        <div className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100">
-          <BiArrowBack size={23} />
-        </div>
+        <button
+          onClick={() => navigate(-1)}
+          className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100"
+        >
+          <BiArrowBack size={23} /> Back
+        </button>
 
         {/* Car Image Section */}
         <div className="flex justify-center mb-12">
@@ -32,7 +37,7 @@ const ConfirmCar = () => {
         </div>
 
         {/* Details Section */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div className="bg-white rounded-2xl shadow-md border-[1.4px] border-gray-200 p-6">
           <div className="grid grid-cols-3 items-end gap-6">
             {/* Delivery Location */}
             <div>
@@ -74,7 +79,7 @@ const ConfirmCar = () => {
           {/* Confirm Button */}
           <div className="flex justify-center mt-8">
             <Link
-              to={"/rent/car/detail"}
+              to={"/rent/car/booked"}
               className="bg-purple-500 text-white py-3 px-16 rounded-full font-medium hover:bg-purple-600"
             >
               Confirm

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaChevronUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const PaymentSelector = ({ pageLink }) => {
+const PaymentDropdown = ({ pageLink }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState("Debit Card");
 
@@ -100,4 +100,4 @@ const PaymentSelector = ({ pageLink }) => {
   );
 };
 
-export default PaymentSelector;
+export default PaymentDropdown;

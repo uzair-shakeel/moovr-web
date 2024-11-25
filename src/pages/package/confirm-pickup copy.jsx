@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header"; // Import your Header component
 import { FaArrowLeft, FaMapMarkerAlt } from "react-icons/fa"; // For the map marker icon
 import { IoSearch } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const ConfirmPickup = () => {
   return (
@@ -26,10 +27,13 @@ const ConfirmPickup = () => {
           {/* Search Input */}
 
           {/* Back Button */}
-          <div className="flex items-center mb-20 cursor-pointer">
+          <Link
+            to={"/package"}
+            className="flex items-center mb-20 cursor-pointer"
+          >
             <FaArrowLeft className="text-lg mr-2" />
-            <span className="text-sm font-medium">Package delivery</span>
-          </div>
+            <span className="text-sm font-medium">Back</span>
+          </Link>
           <div className="relative mb-4">
             <IoSearch
               className="absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-600"
@@ -50,9 +54,12 @@ const ConfirmPickup = () => {
             </div>
 
             {/* Confirm Button */}
-            <button className="w-full py-3 rounded-full bg-purple-500 text-white font-semibold hover:bg-purple-600">
+            <Link
+              to={"/package/delivery"}
+              className="w-full py-3 flex justify-center rounded-full bg-purple-500 text-white font-semibold hover:bg-purple-600"
+            >
               Confirm
-            </button>
+            </Link>
           </div>
         </div>
       </div>

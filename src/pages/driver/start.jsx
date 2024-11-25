@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaRegCommentDots, FaStar } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 
-const DriverConfirmation = () => {
+const DriverStart = () => {
   const navigate = useNavigate();
 
   return (
@@ -101,83 +101,10 @@ const DriverConfirmation = () => {
               </div>
             </div>
           </div>
-
-          {/* Location Input */}
-          <div className="bg-white rounded-2xl shadow-md p-4">
-            <h3 className="text-gray-800 font-semibold mb-2">Location</h3>
-            <input
-              type="text"
-              placeholder="Select pick-up point"
-              className="w-full p-3 bg-bgGray rounded-lg focus:outline-none text-gray-600"
-            />
-          </div>
-
-          {/* Car Details Input */}
-          <div className="bg-white rounded-2xl shadow-md p-4">
-            <h3 className="text-gray-800 font-semibold mb-2">Car details</h3>
-            <div className="space-y-2">
-              <input
-                type="text"
-                placeholder="Car name/model"
-                className="w-full p-3 bg-bgGray rounded-lg focus:outline-none text-gray-600"
-              />
-              <input
-                type="text"
-                placeholder="Car number"
-                className="w-full p-3 bg-bgGray rounded-lg focus:outline-none text-gray-600"
-              />
-            </div>
-          </div>
-
-          {/* Payment Method */}
-          <div className="bg-white rounded-2xl shadow-md p-4">
-            {/* Title */}
-            <h3 className="text-gray-800 font-semibold mb-3">
-              Select payment method
-            </h3>
-
-            {/* Payment Method Input Field */}
-            <div className="flex items-center bg-bgGray rounded-full p-3">
-              <img
-                src="/images/mastercard.svg" // Replace with the actual card image
-                alt="Card Icon"
-                className="w-8 h-8"
-              />
-              <input
-                type="text"
-                value="5144 6xxx xxxx xxxx"
-                readOnly
-                className="ml-3 bg-transparent focus:outline-none text-gray-700 font-medium flex-grow"
-              />
-              <FaChevronDown className="ml-auto text-gray-500" />
-            </div>
-          </div>
-        </div>
-
-        {/* Price and Confirm Button */}
-        <div className="absolute bottom-20 right-6 min-w-[400px]  space-y-4 ">
-          <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center space-y-4">
-            {/* Price Section */}
-            <div className="w-full flex justify-between items-center">
-              <p className="text-gray-700 font-medium">Price</p>
-              <p className="text-xl font-semibold">
-                ₦7.80<span className="text-gray-500 text-sm">/hour</span>
-              </p>
-            </div>
-
-            {/* Confirm Button */}
-
-            <Link
-              to={"/driver/start"}
-              className="bg-purple-500 text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600"
-            >
-              Confirm
-            </Link>
-          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default DriverConfirmation;
+export default DriverStart;

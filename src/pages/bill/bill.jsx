@@ -1,6 +1,7 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import Header from "../../components/header";
+import { Link } from "react-router-dom";
 
 const Bill = () => {
   const bills = [
@@ -70,7 +71,8 @@ const Bill = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {bills.map((bill) => (
-              <div
+              <Link
+                to={"/bill/details"}
                 key={bill.id}
                 className="border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
               >
@@ -95,7 +97,7 @@ const Bill = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import DateTimeModal from "../components/modals/time-date";
 
-const RideForm = () => {
+const RideForm = ({ pageLink }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [pickupOption, setPickupOption] = useState("Pickup Now");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pickupTime, setPickupTime] = useState("");
+
+  const handleSetPickupTime = (time) => {
+    setPickupTime(time);
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -11,6 +18,7 @@ const RideForm = () => {
 
   const handleOptionSelect = (option) => {
     setPickupOption(option);
+    pickupOption === "Pickup Now" && setIsModalOpen(true);
     setIsDropdownOpen(false);
   };
 
@@ -101,7 +109,7 @@ const RideForm = () => {
         </div>
 
         {/* Submit Button */}
-        <Link to={"/ride/selection"}>
+        <Link to={pageLink}>
           <button
             type="submit"
             className="w-full py-3 mt-4 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
@@ -110,6 +118,11 @@ const RideForm = () => {
           </button>
         </Link>
       </form>
+      <DateTimeModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSetPickupTime={handleSetPickupTime}
+      />
     </div>
   );
 };

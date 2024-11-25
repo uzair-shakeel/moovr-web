@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between px-8 pb-5 pt-8 shadow-md bg-white">
+    <header className="flex items-center justify-between px-8 pb-5 pt-8 z-50 shadow-md bg-white">
       {/* Left Section - Logo */}
       <div className="flex items-center space-x-6">
         <img
@@ -30,9 +30,9 @@ const Header = () => {
             { name: "Rent", link: "/rent/cars" },
             { name: "Driver", link: "/drivers" },
             { name: "Package", link: "/package" },
-            { name: "Reserve", link: "/ride" },
+            { name: "Reserve", link: "/reserve" },
             { name: "Bill", link: "/bill" },
-            { name: "More", link: "/ride" },
+            { name: "More", link: "/carpool" },
           ].map((navItem) => (
             <Link
               key={navItem.name}
@@ -91,21 +91,32 @@ const Header = () => {
                 />
                 <span className="text-gray-700">Mr. Edmund</span>
               </div>
-              <img src="/icons/header/pad.svg" alt="" />
+              <Link to={"/activity"}>
+                <img src="/icons/header/pad.svg" alt="" />
+              </Link>
             </div>
             <ul className="py-2">
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4">
+              <Link
+                to={"/settings"}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
+              >
                 <img src="/icons/header/account.svg" alt="" />
                 <span>Account settings</span>
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4">
+              </Link>
+              <Link
+                to={"/languages"}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
+              >
                 <img src="/icons/header/language.svg" alt="" />
                 <span>Language</span>
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4">
+              </Link>
+              <Link
+                to={"/privacy-policy"}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
+              >
                 <img src="/icons/header/legal.svg" alt="" />
                 <span>Legal</span>
-              </li>
+              </Link>
               <Link
                 to={"/"}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
