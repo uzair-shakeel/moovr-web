@@ -24,7 +24,7 @@ import HomePage from "../pages/static/Home";
 import Wallet from "../pages/Wallet";
 import PackageDelivery from "../pages/package/package-delivery";
 import PackageBooked from "../pages/package/package-booked";
-import ConfirmPickup from "../pages/package/track";
+import ConfirmPickup from "../pages/package/confirm-pickup copy.jsx";
 import ConfirmDelivery from "../pages/package/confirm-delivery";
 import Bill from "../pages/Bill/bill";
 import BillDetails from "../pages/bill/bill-details";
