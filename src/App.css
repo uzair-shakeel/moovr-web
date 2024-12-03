@@ -58,3 +58,19 @@
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
+
+.go-button-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(167, 90, 242, 0.7) 0%,
+    rgba(97, 52, 140, 0.3) 100%
+  );
+}
+
+.go-button-bg-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(167, 90, 242, 0.7) 0%,
+    rgba(97, 52, 140, 0.3) 100%
+  );
+}

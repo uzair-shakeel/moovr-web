@@ -1,49 +1,58 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "../pages/auth/login";
-import Signup from "../pages/auth/register";
-import Verification from "../pages/auth/verification";
-import Name from "../pages/auth/name";
-import Ride from "../pages/ride/ride";
-import Booked from "../pages/rent/booked";
-import RideCars from "../pages/rent/cars";
-import RideCarSelection from "../pages/shared/ride-car-selection";
-import RideDetail from "../pages/rent/rent-details";
-import MeetDriverScreen from "../pages/shared/meet-the-driver";
-import StartRideScreen from "../pages/shared/start-ride";
-import StartDestinationScreen from "../pages/towards-destination";
-import CompletedScreen from "../pages/shared/completed";
-import ReviewScreen from "../pages/shared/review";
-import ThankYouScreen from "../pages/shared/thankyou";
-import DriverBooking from "../pages/driver/driver-booking";
-import DriverConfirmation from "../pages/driver/driver-confirmation";
-import StartJourney from "../pages/shared/start-journey";
-import CarDetail from "../pages/rent/car-details";
-import ConfirmCar from "../pages/rent/confirm-car";
-import HomePage from "../pages/static/Home";
-import Wallet from "../pages/Wallet";
-import PackageDelivery from "../pages/package/package-delivery";
-import PackageBooked from "../pages/package/package-booked";
-import ConfirmPickup from "../pages/package/confirm-pickup copy.jsx";
-import ConfirmDelivery from "../pages/package/confirm-delivery";
-import Bill from "../pages/Bill/bill";
-import BillDetails from "../pages/bill/bill-details";
-import Activity from "../pages/activity/activity";
-import PrivacyPolicy from "../pages/static/privacy-policy";
-import Languages from "../pages/static/languages";
-import Settings from "../pages/static/Settings";
-import Details from "../pages/reserve/details";
-import Successful from "../pages/reserve/successful";
-import Reserve from "../pages/reserve/reserve";
-import DriverStart from "../pages/driver/start";
-import PackageCarSelection from "../pages/package/selection";
-import TrackPackage from "../pages/package/track";
+import Login from "../pages/user-panel/auth/login";
+import Signup from "../pages/user-panel/auth/register";
+import Verification from "../pages/user-panel/auth/verification";
+import Name from "../pages/user-panel/auth/name";
+import Ride from "../pages/user-panel/ride/ride";
+import Booked from "../pages/user-panel/rent/booked";
+import RideCars from "../pages/user-panel/rent/cars";
+import RideCarSelection from "../pages/user-panel/shared/ride-car-selection";
+import RideDetail from "../pages/user-panel/rent/rent-details";
+import MeetDriverScreen from "../pages/user-panel/shared/meet-the-driver";
+import StartRideScreen from "../pages/user-panel/shared/start-ride";
+import StartDestinationScreen from "../pages/user-panel/towards-destination";
+import CompletedScreen from "../pages/user-panel/shared/completed";
+import ReviewScreen from "../pages/user-panel/shared/review";
+import ThankYouScreen from "../pages/user-panel/shared/thankyou";
+import DriverBooking from "../pages/user-panel/driver/driver-booking";
+import DriverConfirmation from "../pages/user-panel/driver/driver-confirmation";
+import StartJourney from "../pages/user-panel/shared/start-journey";
+import CarDetail from "../pages/user-panel/rent/car-details";
+import ConfirmCar from "../pages/user-panel/rent/confirm-car";
+import HomePage from "../pages/user-panel/static/Home";
+import Wallet from "../pages/user-panel/Wallet";
+import PackageDelivery from "../pages/user-panel/package/package-delivery";
+import PackageBooked from "../pages/user-panel/package/package-booked";
+import ConfirmPickup from "../pages/user-panel/package/confirm-pickup copy.jsx";
+import ConfirmDelivery from "../pages/user-panel/package/confirm-delivery";
+import Bill from "../pages/user-panel/bill/bill.jsx";
+import BillDetails from "../pages/user-panel/bill/bill-details";
+import Activity from "../pages/user-panel/activity/activity";
+import PrivacyPolicy from "../pages/user-panel/static/privacy-policy";
+import Languages from "../pages/user-panel/static/languages";
+import Settings from "../pages/user-panel/static/Settings";
+import Details from "../pages/user-panel/reserve/details";
+import Successful from "../pages/user-panel/reserve/successful";
+import Reserve from "../pages/user-panel/reserve/reserve";
+import DriverStart from "../pages/user-panel/driver/start";
+import PackageCarSelection from "../pages/user-panel/package/selection";
+import TrackPackage from "../pages/user-panel/package/track";
 
-import CarpoolSelection from "../pages/carpool/selection";
-import Carpool from "../pages/carpool/carpool.jsx";
-import ReserveRide from "../pages/reserve/reserve-ride.jsx";
-import ReserveSelection from "../pages/reserve/reserve-selection.jsx";
-import Driver from "../pages/reserve/driver.jsx";
+import CarpoolSelection from "../pages/user-panel/carpool/selection";
+import Carpool from "../pages/user-panel/carpool/carpool.jsx";
+import ReserveRide from "../pages/user-panel/reserve/reserve-ride.jsx";
+import ReserveSelection from "../pages/user-panel/reserve/reserve-selection.jsx";
+import Driver from "../pages/user-panel/reserve/driver.jsx";
+import Go from "../pages/driver-panel/go.jsx";
+import Accept from "../pages/driver-panel/accept.jsx";
+import Reached from "../pages/driver-panel/reached.jsx";
+import End from "../pages/driver-panel/end.jsx";
+import Completed from "../pages/driver-panel/completed.jsx";
+import Review from "../pages/driver-panel/review.jsx";
+import ThankYou from "../pages/driver-panel/thankyou.jsx";
+import TermsAndConditions from "../pages/driver-panel/terms.jsx";
+import Revenue from "../pages/driver-panel/revenue.jsx";
 // import StartDestinationScreen from "../pages/towards-destination.jsx";
 
 const App = () => {
@@ -102,6 +111,17 @@ const App = () => {
           <Route path="/reserve/driver" element={<Driver />} />
           <Route path="/reserve/details" element={<Details />} />
           <Route path="/reserve/successful" element={<Successful />} />
+
+          {/* Driver Panel Routes are here */}
+          <Route path="/d/" element={<Go />} />
+          <Route path="/d/accept" element={<Accept />} />
+          <Route path="/d/reached" element={<Reached />} />
+          <Route path="/d/end" element={<End />} />
+          <Route path="/d/completed" element={<Completed />} />
+          <Route path="/d/review" element={<Review />} />
+          <Route path="/d/thank-you" element={<ThankYou />} />
+          <Route path="/d/terms" element={<TermsAndConditions />} />
+          <Route path="/d/revenue" element={<Revenue />} />
         </Routes>
       </div>
     </Router>
