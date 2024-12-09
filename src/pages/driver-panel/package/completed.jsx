@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../../components/driver-panel/header"; // Import your Header component
-import CompletedCard from "../../components/user-panel/ride/completed-card"; // Import the new DriverInfoCard component
+import Header from "../../../components/driver-panel/header"; // Import your Header component
+import CompletedCard from "../../../components/user-panel/ride/completed-card"; // Import the new DriverInfoCard component
 
-const Completed = () => {
+const PackageCompleted = () => {
   return (
     <div className="h-screen w-screen">
       {/* Header */}
@@ -18,11 +18,11 @@ const Completed = () => {
         {/* Floating Driver Info Card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-4">
           {/* Driver Info Card */}
-          <CompletedCard title={"Reached destination"} />
+          <CompletedCard title={"Package Reached"} />
         </div>
       </div>
     </div>
   );
 };
 
-export default Completed;
+export default PackageCompleted;

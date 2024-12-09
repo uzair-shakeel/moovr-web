@@ -53,7 +53,27 @@ import Review from "../pages/driver-panel/review.jsx";
 import ThankYou from "../pages/driver-panel/thankyou.jsx";
 import TermsAndConditions from "../pages/driver-panel/terms.jsx";
 import Revenue from "../pages/driver-panel/revenue.jsx";
-// import StartDestinationScreen from "../pages/towards-destination.jsx";
+import Rides from "../pages/driver-panel/rides.jsx";
+import RatingsDashboard from "../pages/driver-panel/ratings.jsx";
+import SetupAccount from "../pages/driver-panel/setup-account.jsx";
+import SetupProfile from "../pages/driver-panel/setup-profile.jsx";
+import DriverWallet from "../pages/driver-panel/Wallet.jsx";
+import PackageGo from "../pages/driver-panel/package/go.jsx";
+import PackageAccept from "../pages/driver-panel/package/accept.jsx";
+import PackageCompleted from "../pages/driver-panel/package/completed.jsx";
+import PackageEnd from "../pages/driver-panel/package/end.jsx";
+import DriverVerification from "../pages/driver-panel/auth/verification.jsx";
+import DriverName from "../pages/driver-panel/auth/name.jsx";
+import VehicleRegistration from "../pages/driver-panel/vehicle-registration.jsx";
+import CreateListing from "../pages/driver-panel/create-listing.jsx";
+import EditListing from "../pages/driver-panel/edit-listing.jsx";
+import Pass from "../pages/driver-panel/pass.jsx";
+import Bookings from "../pages/driver-panel/bookings.jsx";
+import Earn from "../pages/driver-panel/auth/earn.jsx";
+import EarnTypes from "../pages/driver-panel/auth/earn-types.jsx";
+import Welcome from "../pages/driver-panel/auth/welcome.jsx";
+import VehicleType from "../pages/driver-panel/auth/vehicle-type.jsx";
+import AccountType from "../pages/driver-panel/auth/account-types.jsx";
 
 const App = () => {
   return (
@@ -113,7 +133,23 @@ const App = () => {
           <Route path="/reserve/successful" element={<Successful />} />
 
           {/* Driver Panel Routes are here */}
+          <Route path="/d/verification" element={<DriverVerification />} />
+          <Route path="/d/name" element={<DriverName />} />
+          <Route path="/d/earn" element={<Earn />} />
+          <Route path="/d/earn-types" element={<EarnTypes />} />
+          <Route path="/d/vehicle-types" element={<VehicleType />} />
+          <Route path="/d/account-types" element={<AccountType />} />
+          <Route path="/d/welcome" element={<Welcome />} />
           <Route path="/d/" element={<Go />} />
+          <Route
+            path="/d/vehicle/registration"
+            element={<VehicleRegistration />}
+          />
+
+          <Route path="/d/vehicle/create" element={<CreateListing />} />
+          <Route path="/d/vehicle/edit" element={<EditListing />} />
+          <Route path="/d/vehicle/pass" element={<Pass />} />
+          <Route path="/d/vehicle/bookings" element={<Bookings />} />
           <Route path="/d/accept" element={<Accept />} />
           <Route path="/d/reached" element={<Reached />} />
           <Route path="/d/end" element={<End />} />
@@ -122,6 +158,15 @@ const App = () => {
           <Route path="/d/thank-you" element={<ThankYou />} />
           <Route path="/d/terms" element={<TermsAndConditions />} />
           <Route path="/d/revenue" element={<Revenue />} />
+          <Route path="/d/rides" element={<Rides />} />
+          <Route path="/d/rating" element={<RatingsDashboard />} />
+          <Route path="/d/setup-account" element={<SetupAccount />} />
+          <Route path="/d/setup-profile" element={<SetupProfile />} />
+          <Route path="/d/wallet" element={<DriverWallet />} />
+          <Route path="/d/package/" element={<PackageGo />} />
+          <Route path="/d/package/accept" element={<PackageAccept />} />
+          <Route path="/d/package/reached" element={<PackageCompleted />} />
+          <Route path="/d/package/end" element={<PackageEnd />} />
         </Routes>
       </div>
     </Router>

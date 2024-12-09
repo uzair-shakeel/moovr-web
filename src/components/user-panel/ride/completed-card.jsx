@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CompletedCard = () => {
+const CompletedCard = ({ title }) => {
   return (
     <div className=" bg-white rounded-2xl shadow-lg p-8 w-96 text-center">
-      <h2 className="font-semibold text-gray-800 mb-4">Reached destination</h2>
+      <h2 className="font-semibold text-gray-800 mb-4">{title}</h2>
       <div className="flex justify-center mb-6">
         <div className="flex items-center justify-center">
           <img
