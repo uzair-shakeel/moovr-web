@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/driver-panel/header";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { IoIosStar } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const End = () => {
   return (
@@ -54,9 +55,11 @@ const End = () => {
                   </div>
                 </div>
               </div>
-              <button className="bg-[#F3E9FE]  w-full mt-4 py-4 font-[600] rounded-full">
-                End
-              </button>
+              <Link to={"/d/completed"}>
+                <button className="bg-[#F3E9FE]  w-full mt-4 py-4 font-[600] rounded-full">
+                  End
+                </button>
+              </Link>
             </div>
           </div>
         </div>

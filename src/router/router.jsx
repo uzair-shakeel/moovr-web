@@ -75,8 +75,9 @@ import EarnTypes from "../pages/driver-panel/auth/earn-types.jsx";
 import Welcome from "../pages/driver-panel/auth/welcome.jsx";
 import VehicleType from "../pages/driver-panel/auth/vehicle-type.jsx";
 import AccountType from "../pages/driver-panel/auth/account-types.jsx";
-import DriverRegister from "../pages/user-panel/auth/register";
+import DriverRegister from "../pages/driver-panel/auth/register.jsx";
 import PackageDelivered from "../pages/driver-panel/package/delivered.jsx";
+import ChoosePanel from "../pages/choose-panel.jsx";
 
 const App = () => {
   return (
@@ -84,6 +85,7 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/choose" element={<ChoosePanel />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verification" element={<Verification />} />

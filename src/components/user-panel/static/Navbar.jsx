@@ -28,11 +28,11 @@ const Navbar = () => {
       </div>
       {/* Buttons */}
       <div className="space-x-4">
-        <Link to={"/login"} className="text-gray-700 font-medium">
+        <Link to={"/choose"} className="text-gray-700 font-medium">
           Log In
         </Link>
         <Link
-          to={"/signup"}
+          to={"/choose"}
           className="bg-purple-500 text-white py-2 px-4 rounded-full hover:bg-purple-600"
         >
           Sign Up
