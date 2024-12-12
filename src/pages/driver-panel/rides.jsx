@@ -7,8 +7,8 @@ import Header from "../../components/driver-panel/header";
 
 const totalRides = 50; // Total rides including completed and canceled
 const rideData = [
-  { name: "Completed", value: 45, color: "#8B5CF6", bgColor: "#F3E8FF" },
-  { name: "Cancelled", value: 5, color: "#7C3AED", bgColor: "#EDE9FE" },
+  { name: "Completed", value: 45, color: "#A75AF2", bgColor: "#F3E8FF" },
+  { name: "Cancelled", value: 5, color: "#572083", bgColor: "#EDE9FE" },
 ];
 
 // Recent Rides data
@@ -93,7 +93,7 @@ export default function Rides() {
           <div className="flex justify-center items-center space-x-10 mt-8">
             {rideData.map((data, index) => (
               <div key={index} className="text-center">
-                <ResponsiveContainer width={120} height={120}>
+                <ResponsiveContainer width={200} height={200}>
                   <PieChart>
                     <Pie
                       data={[
@@ -101,20 +101,35 @@ export default function Rides() {
                         { value: totalRides - data.value, color: data.bgColor },
                       ]}
                       dataKey="value"
-                      outerRadius={60}
-                      innerRadius={40}
+                      outerRadius={80} // Increased size
+                      innerRadius={60} // Increased size
                       startAngle={90}
                       endAngle={450}
+                      isAnimationActive={false}
                     >
-                      {[
-                        <Cell key="value" fill={data.color} />,
-                        <Cell key="bg" fill={data.bgColor} />,
-                      ]}
+                      <Cell key="value" fill={data.color} />
+                      <Cell key="bg" fill={data.bgColor} />
                     </Pie>
+                    <text
+                      x="50%"
+                      y="45%"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-lg font-bold"
+                    >
+                      {data.name}
+                    </text>
+                    <text
+                      x="50%"
+                      y="55%"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-xl mt-2 font-medium text-gray-700"
+                    >
+                      {data.value}
+                    </text>
                   </PieChart>
                 </ResponsiveContainer>
-                <p className="mt-4 text-lg font-medium">{data.name}</p>
-                <p className="text-2xl font-bold text-gray-700">{data.value}</p>
               </div>
             ))}
           </div>

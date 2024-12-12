@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Header from "../../components/driver-panel/header";
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function SetupAccount() {
   const [file, setFile] = useState(null);
@@ -60,12 +61,14 @@ export default function SetupAccount() {
           </div>
 
           {/* Confirm Button */}
-          <button
-            onClick={handleConfirm}
-            className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg mt-6 transition"
-          >
-            Confirm
-          </button>
+          <Link to="/d/package">
+            <button
+              onClick={handleConfirm}
+              className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg mt-6 transition"
+            >
+              Confirm
+            </button>
+          </Link>
         </div>
       </div>
     </div>

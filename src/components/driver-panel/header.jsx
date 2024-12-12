@@ -54,7 +54,7 @@ const Header = () => {
       <div className="relative">
         {/* Profile Button */}
         <div className="flex items-center justify-center gap-6">
-          <Link to={"/wallet"}>
+          <Link to={"/d/wallet"}>
             <img src="/icons/header/wallet.svg" alt="" />
           </Link>
           <button

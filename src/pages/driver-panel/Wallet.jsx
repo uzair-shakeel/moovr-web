@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa"; // Icons for payment methods
 import "../../App.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import Header from "../../components/user-panel/header";
+import Header from "../../components/driver-panel/header";
 
 const DriverWallet = () => {
   const [iswithdrawVisible, setIswithdrawVisible] = useState(false);

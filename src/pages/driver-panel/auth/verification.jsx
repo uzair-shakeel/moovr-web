@@ -87,7 +87,7 @@ const DriverVerification = () => {
                 </button>
               )}
             </div>
-            <Link to={"/name"}>
+            <Link to={"/d/name"}>
               <button
                 type="submit"
                 className="w-full py-3 mt-3 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"

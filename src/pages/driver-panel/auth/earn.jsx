@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Earn() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -61,9 +63,11 @@ export default function Earn() {
               provide, including for marketing purpose.
             </div>
 
-            <button className="w-full bg-primaryPurple text-white py-3 rounded-lg hover:bg-[#7347d5] transition-colors">
-              Next
-            </button>
+            <Link to="/d/account-types">
+              <button className="w-full mt-6 bg-primaryPurple text-white py-3 rounded-lg hover:bg-[#7347d5] transition-colors">
+                Next
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../../../components/driver-panel/header"; // Import your Header component
-import CompletedCard from "../../../components/user-panel/ride/completed-card"; // Import the new DriverInfoCard component
 
-const PackageCompleted = () => {
+const PackageDelivered = () => {
   return (
     <div className="h-screen w-screen">
       {/* Header */}
@@ -17,12 +16,23 @@ const PackageCompleted = () => {
 
         {/* Floating Driver Info Card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-4">
-          {/* Driver Info Card */}
-          <CompletedCard path="/ride/review" title={"Package Reached"} />
+          <div className=" bg-white rounded-2xl shadow-lg p-8 w-96 text-center">
+            <h2 className="font-semibold text-gray-800 mb-4">
+              Package delivered
+            </h2>
+            <div className="flex justify-center mb-6">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/check.png" // Replace with your checkmark icon
+                  alt="Checkmark"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default PackageCompleted;
+export default PackageDelivered;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CompletedCard = ({ title }) => {
+const CompletedCard = ({ title, path }) => {
   return (
     <div className=" bg-white rounded-2xl shadow-lg p-8 w-96 text-center">
       <h2 className="font-semibold text-gray-800 mb-4">{title}</h2>
@@ -13,7 +13,7 @@ const CompletedCard = ({ title }) => {
           />
         </div>
       </div>
-      <Link to={"/ride/review"}>
+      <Link to={path}>
         <button className="bg-purple-500 text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600">
           Rate your ride
         </button>

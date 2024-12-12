@@ -57,6 +57,7 @@ import Rides from "../pages/driver-panel/rides.jsx";
 import RatingsDashboard from "../pages/driver-panel/ratings.jsx";
 import SetupAccount from "../pages/driver-panel/setup-account.jsx";
 import SetupProfile from "../pages/driver-panel/setup-profile.jsx";
+import SetupLicense from "../pages/driver-panel/setup-license.jsx";
 import DriverWallet from "../pages/driver-panel/Wallet.jsx";
 import PackageGo from "../pages/driver-panel/package/go.jsx";
 import PackageAccept from "../pages/driver-panel/package/accept.jsx";
@@ -74,6 +75,8 @@ import EarnTypes from "../pages/driver-panel/auth/earn-types.jsx";
 import Welcome from "../pages/driver-panel/auth/welcome.jsx";
 import VehicleType from "../pages/driver-panel/auth/vehicle-type.jsx";
 import AccountType from "../pages/driver-panel/auth/account-types.jsx";
+import DriverRegister from "../pages/user-panel/auth/register";
+import PackageDelivered from "../pages/driver-panel/package/delivered.jsx";
 
 const App = () => {
   return (
@@ -133,6 +136,7 @@ const App = () => {
           <Route path="/reserve/successful" element={<Successful />} />
 
           {/* Driver Panel Routes are here */}
+          <Route path="/d/signup" element={<DriverRegister />} />
           <Route path="/d/verification" element={<DriverVerification />} />
           <Route path="/d/name" element={<DriverName />} />
           <Route path="/d/earn" element={<Earn />} />
@@ -162,11 +166,13 @@ const App = () => {
           <Route path="/d/rating" element={<RatingsDashboard />} />
           <Route path="/d/setup-account" element={<SetupAccount />} />
           <Route path="/d/setup-profile" element={<SetupProfile />} />
+          <Route path="/d/setup-license" element={<SetupLicense />} />
           <Route path="/d/wallet" element={<DriverWallet />} />
           <Route path="/d/package/" element={<PackageGo />} />
           <Route path="/d/package/accept" element={<PackageAccept />} />
           <Route path="/d/package/reached" element={<PackageCompleted />} />
           <Route path="/d/package/end" element={<PackageEnd />} />
+          <Route path="/d/package/delivered" element={<PackageDelivered />} />
         </Routes>
       </div>
     </Router>

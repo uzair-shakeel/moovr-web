@@ -3,7 +3,7 @@ import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const DriverRegister = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handlePhoneNumberChange = (isValid, value, countryData) => {
@@ -19,13 +19,6 @@ const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-5xl h-[550px] grid md:grid-cols-2">
-        <div className="hidden md:block">
-          <img
-            src="/Singup-BG.jpg"
-            alt="Login Graphic"
-            className="object-cover h-full w-full"
-          />
-        </div>
         <div className="p-8 w-96 mx-auto">
           <h2 className="text-2xl font-bold mb-4">Enter your mobile number</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -37,7 +30,7 @@ const Register = () => {
               fieldId="phoneNumber"
               onPhoneNumberChange={handlePhoneNumberChange}
             />
-            <Link to={"/verification"}>
+            <Link to={"/d/verification"}>
               <button
                 type="submit"
                 className="w-full py-2 mt-3 bg-purple-500 text-white rounded-full hover:bg-purple-600"
@@ -87,9 +80,16 @@ const Register = () => {
             number provided. Text "STOP" to 67890 to opt out.
           </p>
         </div>
+        <div className="hidden md:block">
+          <img
+            src="/driver/auth/signup-bg.png"
+            alt="Login Graphic"
+            className="object-cover h-full w-full"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default DriverRegister;

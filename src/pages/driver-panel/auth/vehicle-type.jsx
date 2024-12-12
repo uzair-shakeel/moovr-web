@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function VehicleTypes() {
   const vehicles = [
     {
@@ -43,13 +45,15 @@ export default function VehicleTypes() {
 
           <div className="space-y-4">
             {vehicles.map((vehicle) => (
-              <button
-                key={vehicle.title}
-                className="w-full p-4 bg-gray-50 h-[120px] border border-gray-300 rounded-lg text-left hover:bg-gray-100 transition-colors"
-              >
-                <h3 className="font-medium mb-2">{vehicle.title}</h3>
-                <p className="text-sm text-gray-500">{vehicle.description}</p>
-              </button>
+              <Link to={"/d/welcome"}>
+                <button
+                  key={vehicle.title}
+                  className="w-full p-4 mt-4 bg-gray-50 h-[120px] border border-gray-300 rounded-lg text-left hover:bg-gray-100 transition-colors"
+                >
+                  <h3 className="font-medium mb-2">{vehicle.title}</h3>
+                  <p className="text-sm text-gray-500">{vehicle.description}</p>
+                </button>
+              </Link>
             ))}
           </div>
         </div>

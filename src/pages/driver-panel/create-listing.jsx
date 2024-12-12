@@ -3,6 +3,7 @@
 import { FiUpload } from "react-icons/fi";
 import Header from "../../components/driver-panel/header";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CreateListing() {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -117,12 +118,14 @@ export default function CreateListing() {
               />
             </div>
 
-            <button
-              type="button"
-              className="w-full bg-primaryPurple text-white py-3 rounded-full hover:bg-[#7347d5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8257E9]"
-            >
-              Create
-            </button>
+            <Link to={"/d/vehicle/edit"}>
+              <button
+                type="button"
+                className="w-full bg-primaryPurple text-white py-3 rounded-full hover:bg-[#7347d5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8257E9]"
+              >
+                Create
+              </button>
+            </Link>
           </div>
         </div>
       </main>

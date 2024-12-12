@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function EarnTypes() {
   const options = [
     {
@@ -43,13 +45,15 @@ export default function EarnTypes() {
 
           <div className="grid grid-cols-2 gap-4">
             {options.map((option) => (
-              <button
-                key={option.title}
-                className="p-4 bg-gray-50 rounded-lg text-left hover:bg-gray-100 transition-colors"
-              >
-                <h3 className="font-medium mb-2">{option.title}</h3>
-                <p className="text-sm text-gray-500">{option.description}</p>
-              </button>
+              <Link to={"/d/vehicle-types"}>
+                <button
+                  key={option.title}
+                  className="p-4 bg-gray-50 rounded-lg text-left hover:bg-gray-100 transition-colors"
+                >
+                  <h3 className="font-medium mb-2">{option.title}</h3>
+                  <p className="text-sm text-gray-500">{option.description}</p>
+                </button>
+              </Link>
             ))}
           </div>
         </div>

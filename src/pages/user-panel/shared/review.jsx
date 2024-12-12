@@ -22,7 +22,7 @@ const ReviewScreen = () => {
         {/* Floating Driver Info Card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-4">
           {/* Driver Info Card */}
-          <ReviewCard />
+          <ReviewCard path={"/ride/thank-you"} />
         </div>
       </div>
     </div>

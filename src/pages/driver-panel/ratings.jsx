@@ -111,11 +111,7 @@ export default function Revenue() {
               {/* Overall Ratings */}
               <Card className="border border-gray-200 shadow-lg p-8 flex flex-col justify-center items-center">
                 <h3 className="text-lg font-medium mb-2">Overall Ratings</h3>
-                <div className="flex items-center text-yellow-500 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="text-xl" />
-                  ))}
-                </div>
+                <img src="/driver/stars.svg" alt="" />
                 <p className="text-3xl font-bold text-gray-700">5.0</p>
                 <p className="text-gray-500">Rated by 45 people</p>
               </Card>
@@ -126,7 +122,7 @@ export default function Revenue() {
                   Ratings Percentage
                 </h3>
                 <div className="flex justify-center">
-                  <ResponsiveContainer width={120} height={120}>
+                  <ResponsiveContainer width={150} height={150}>
                     <PieChart>
                       <Pie
                         data={[
@@ -140,22 +136,26 @@ export default function Revenue() {
                           },
                         ]}
                         dataKey="value"
-                        innerRadius={40}
-                        outerRadius={60}
+                        innerRadius={50} // Adjusted size
+                        outerRadius={70} // Adjusted size
                         startAngle={90}
                         endAngle={450}
                       >
-                        {[
-                          <Cell key="value" fill={ratingsData[0].color} />,
-                          <Cell key="bg" fill={ratingsData[0].bgColor} />,
-                        ]}
+                        <Cell key="value" fill={ratingsData[0].color} />
+                        <Cell key="bg" fill={ratingsData[0].bgColor} />
                       </Pie>
+                      <text
+                        x="50%"
+                        y="50%"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="text-xl font-bold"
+                      >
+                        {ratingsData[0].value}%
+                      </text>
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
-                <p className="text-3xl font-bold text-center mt-4">
-                  {ratingsData[0].value}%
-                </p>
               </Card>
 
               {/* Ratings Trend */}
@@ -197,25 +197,38 @@ export default function Revenue() {
               {
                 type: "Payout for a ride",
                 time: "9:54AM",
+                name: "Emeka",
+                review: "Smooth ride, friendly driver! Would recommend.",
                 amount: "-₦10",
+                rating: 5.0,
                 color: "text-red-500",
               },
               {
                 type: "Payout for a ride",
                 time: "2:30PM",
+                name: "Emeka",
+                review: "Smooth ride, friendly driver! Would recommend.",
                 amount: "-₦100",
+                rating: 5.0,
                 color: "text-red-500",
               },
               {
                 type: "Cash added",
                 time: "05/09/2024",
+                name: "Emeka",
+                review: "Smooth ride, friendly driver! Would recommend.",
                 amount: "+₦50",
+
+                rating: 5.0,
                 color: "text-green-500",
               },
               {
                 type: "Payout for a ride",
                 time: "05/09/2024",
+                name: "Emeka",
+                review: "Smooth ride, friendly driver! Would recommend.",
                 amount: "-₦100",
+                rating: 5.0,
                 color: "text-red-500",
               },
             ].map((transaction, index) => (
@@ -224,13 +237,21 @@ export default function Revenue() {
                 className="flex items-center justify-between p-7 bg-gray-50 rounded-lg shadow-md"
               >
                 <div className="flex items-center space-x-2">
-                  <div>
-                    <p className="text-sm font-medium">{transaction.type}</p>
+                  <div className="flex gap-3 items-center">
+                    <div>
+                      <img
+                        src="/images/avatar.png"
+                        alt=""
+                        className="rounded-full h-12 w-12"
+                      />
+                    </div>
+                    <p className="text-sm font-medium">{transaction.name}</p>
                   </div>
                 </div>
                 <p className="text-xs text-gray-500">{transaction.time}</p>
-                <span className={`text-sm font-semibold ${transaction.color}`}>
-                  {transaction.amount}
+                <p className="text-xs text-gray-500">{transaction.review}</p>
+                <span className={`text-md font-semibold `}>
+                  {transaction.rating}.0
                 </span>
               </div>
             ))}

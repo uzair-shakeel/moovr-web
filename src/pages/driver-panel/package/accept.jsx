@@ -59,7 +59,7 @@ const PackageAccept = () => {
                   </div>
                 </div>
               </div>
-              <Link to={"/d/reached"}>
+              <Link to={"/d/package/reached"}>
                 <button className="bg-primaryPurple text-white w-full mt-4 py-4 font-[600] rounded-full">
                   Accept
                 </button>

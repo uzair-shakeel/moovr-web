@@ -62,9 +62,11 @@ const TermsAndConditions = () => {
           help protect your information.
         </p>
         <div className="w-full flex justify-center">
-          <button className="w-fit px-20 text-center bg-purple-500 text-white py-3 rounded-full text-lg">
-            Accept
-          </button>
+          <Link to={"/d/revenue"}>
+            <button className="w-fit px-20 text-center bg-purple-500 text-white py-3 rounded-full text-lg">
+              Accept
+            </button>
+          </Link>
         </div>
       </div>
     </div>

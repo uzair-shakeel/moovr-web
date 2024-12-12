@@ -53,7 +53,7 @@ const DriverName = () => {
               onChange={(e) => setLastName(e.target.value)}
               className="w-full px-4 py-2 border rounded-full bg-gray-100 focus:outline-none"
             />
-            <Link to={"/ride"}>
+            <Link to={"/d/earn"}>
               <button
                 type="submit"
                 className="w-full py-3 mt-4 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"

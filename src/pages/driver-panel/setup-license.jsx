@@ -5,7 +5,7 @@ import Header from "../../components/driver-panel/header";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function SetupProfile() {
+export default function SetupLicense() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -36,7 +36,7 @@ export default function SetupProfile() {
 
           {/* Content */}
           <h2 className="text-lg font-semibold text-gray-800 text-center">
-            Profile picture
+            Driving License
           </h2>
           <p className="text-sm text-gray-600 text-center mb-6">
             Upload your high quality picture, where your face is clearly

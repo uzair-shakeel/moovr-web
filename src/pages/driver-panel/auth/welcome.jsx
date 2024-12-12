@@ -1,4 +1,5 @@
 import { FiChevronRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
   const steps = [
@@ -46,18 +47,20 @@ export default function Welcome() {
 
           <div className="grid grid-cols-2 gap-4">
             {steps.map((step) => (
-              <button
-                key={step.key}
-                className="w-full p-4 bg-gray-50 rounded-lg text-left hover:bg-gray-100 transition-colors flex items-center justify-between"
-              >
-                <div>
-                  <h3 className="font-medium">{step.title}</h3>
-                  {step.subtitle && (
-                    <p className="text-sm text-gray-500">{step.subtitle}</p>
-                  )}
-                </div>
-                <FiChevronRight className="text-gray-400" />
-              </button>
+              <Link to={"/d/"}>
+                <button
+                  key={step.key}
+                  className="w-full p-4 bg-gray-50 rounded-lg text-left hover:bg-gray-100 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <h3 className="font-medium">{step.title}</h3>
+                    {step.subtitle && (
+                      <p className="text-sm text-gray-500">{step.subtitle}</p>
+                    )}
+                  </div>
+                  <FiChevronRight className="text-gray-400" />
+                </button>
+              </Link>
             ))}
           </div>
         </div>
