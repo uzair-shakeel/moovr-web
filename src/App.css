@@ -1,8 +1,8 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  /* text-align: center; */
 }
 
 .logo {
@@ -39,4 +39,38 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.card-gradient {
+  background: linear-gradient(
+    105.63deg,
+    #a75af2 -46.25%,
+    rgba(171, 160, 180, 0.11) 26.06%,
+    rgba(171, 160, 180, 0.11) 74.86%,
+    #a75af2 145.12%
+  );
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.go-button-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(167, 90, 242, 0.7) 0%,
+    rgba(97, 52, 140, 0.3) 100%
+  );
+}
+
+.go-button-bg-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(167, 90, 242, 0.7) 0%,
+    rgba(97, 52, 140, 0.3) 100%
+  );
 }
