@@ -66,10 +66,12 @@ import PackageEnd from "../pages/driver-panel/package/end.jsx";
 import DriverVerification from "../pages/driver-panel/auth/verification.jsx";
 import DriverName from "../pages/driver-panel/auth/name.jsx";
 import VehicleRegistration from "../pages/driver-panel/vehicle-registration.jsx";
+import VehicleInsurance from "../pages/driver-panel/vehicle-insurance.jsx";
 import CreateListing from "../pages/driver-panel/create-listing.jsx";
 import EditListing from "../pages/driver-panel/edit-listing.jsx";
 import Pass from "../pages/driver-panel/pass.jsx";
 import Bookings from "../pages/driver-panel/bookings.jsx";
+import Listings from "../pages/driver-panel/listings.jsx";
 import Earn from "../pages/driver-panel/auth/earn.jsx";
 import EarnTypes from "../pages/driver-panel/auth/earn-types.jsx";
 import Welcome from "../pages/driver-panel/auth/welcome.jsx";
@@ -78,6 +80,13 @@ import AccountType from "../pages/driver-panel/auth/account-types.jsx";
 import DriverRegister from "../pages/driver-panel/auth/register.jsx";
 import PackageDelivered from "../pages/driver-panel/package/delivered.jsx";
 import ChoosePanel from "../pages/choose-panel.jsx";
+import TotalListings from "../pages/driver-panel/total-listings.jsx";
+import TotalBookings from "../pages/driver-panel/total-bookings.jsx";
+import DriverSettings from "../pages/driver-panel/static/settings.jsx";
+import DriverPrivacyPolicy from "../pages/driver-panel/static/privacy-policy.jsx";
+import DriverLanguages from "../pages/driver-panel/static/languages.jsx";
+import DriverActivity from "../pages/driver-panel/activity/activity.jsx";
+import Dashboard from "../pages/driver-panel/dashboard.jsx";
 
 const App = () => {
   return (
@@ -147,15 +156,17 @@ const App = () => {
           <Route path="/d/account-types" element={<AccountType />} />
           <Route path="/d/welcome" element={<Welcome />} />
           <Route path="/d/" element={<Go />} />
+          <Route path="/d/dashboard" element={<Dashboard />} />
           <Route
             path="/d/vehicle/registration"
             element={<VehicleRegistration />}
           />
-
+          <Route path="/d/vehicle/insurance" element={<VehicleInsurance />} />
           <Route path="/d/vehicle/create" element={<CreateListing />} />
           <Route path="/d/vehicle/edit" element={<EditListing />} />
           <Route path="/d/vehicle/pass" element={<Pass />} />
           <Route path="/d/vehicle/bookings" element={<Bookings />} />
+          <Route path="/d/vehicle/listings" element={<Listings />} />
           <Route path="/d/accept" element={<Accept />} />
           <Route path="/d/reached" element={<Reached />} />
           <Route path="/d/end" element={<End />} />
@@ -165,7 +176,13 @@ const App = () => {
           <Route path="/d/terms" element={<TermsAndConditions />} />
           <Route path="/d/revenue" element={<Revenue />} />
           <Route path="/d/rides" element={<Rides />} />
+          <Route path="/d/activity" element={<DriverActivity />} />
+          <Route path="/d/listing" element={<TotalListings />} />
+          <Route path="/d/bookings" element={<TotalBookings />} />
           <Route path="/d/rating" element={<RatingsDashboard />} />
+          <Route path="/d/languages" element={<DriverLanguages />} />
+          <Route path="/d/privacy-policy" element={<DriverPrivacyPolicy />} />
+          <Route path="/d/settings" element={<DriverSettings />} />
           <Route path="/d/setup-account" element={<SetupAccount />} />
           <Route path="/d/setup-profile" element={<SetupProfile />} />
           <Route path="/d/setup-license" element={<SetupLicense />} />

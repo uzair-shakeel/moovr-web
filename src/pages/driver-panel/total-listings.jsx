@@ -45,8 +45,8 @@ export default function TotalListings() {
 
       <div className="p-6 max-w-6xl mx-auto">
         {/* Listing Stats */}
-        <Card className="p-6 shadow-md">
-          <div className="flex justify-between items-center">
+        <Card className="p-6 ">
+          <div className="flex  justify-between items-center">
             <h2 className="text-xl font-semibold">Total Listings</h2>
             <div className="relative">
               <button
@@ -87,7 +87,7 @@ export default function TotalListings() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center space-x-10 mt-8">
+          <div className="flex shadow-md justify-center items-center space-x-10 py-10 mt-8">
             {listingData.map((data, index) => (
               <div key={index} className="text-center">
                 <ResponsiveContainer width={200} height={200}>
@@ -140,16 +140,16 @@ export default function TotalListings() {
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Recent</h3>
           <div className="space-y-4">
             {recentListings.map((listing) => (
-              <Card
+              <div
                 key={listing.id}
-                className="flex items-center justify-between p-4"
+                className="flex shadow-md border rounded-md border-gray-50 items-center justify-between p-4"
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-auto h-12">
                     <img
                       src="/images/BMW.png"
                       alt=""
-                      className="h-full w-full object-contain"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div>
@@ -168,7 +168,7 @@ export default function TotalListings() {
                 >
                   {listing.status}
                 </span>
-              </Card>
+              </div>
             ))}
           </div>
         </div>

@@ -28,7 +28,8 @@ const Header = () => {
           {[
             { name: "Home", icon: "home", link: "/d/" },
             { name: "Dashboard", icon: "dashboard", link: "/d/dashboard" },
-            { name: "moovR Pass", icon: "pass", link: "/d/pass" },
+            { name: "Listings", icon: "listings", link: "/d/vehicle/listings" },
+            { name: "Bookings", icon: "bookings", link: "/d/vehicle/bookings" },
           ].map((navItem) => (
             <Link
               key={navItem.name}
@@ -87,27 +88,27 @@ const Header = () => {
                 />
                 <span className="text-gray-700">Mr. Edmund</span>
               </div>
-              <Link to={"/activity"}>
+              <Link to={"/d/activity"}>
                 <img src="/icons/header/pad.svg" alt="" />
               </Link>
             </div>
             <ul className="py-2">
               <Link
-                to={"/settings"}
+                to={"/d/settings"}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
               >
                 <img src="/icons/header/account.svg" alt="" />
                 <span>Account settings</span>
               </Link>
               <Link
-                to={"/languages"}
+                to={"/d/languages"}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
               >
                 <img src="/icons/header/language.svg" alt="" />
                 <span>Language</span>
               </Link>
               <Link
-                to={"/privacy-policy"}
+                to={"/d/privacy-policy"}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center space-x-4"
               >
                 <img src="/icons/header/legal.svg" alt="" />

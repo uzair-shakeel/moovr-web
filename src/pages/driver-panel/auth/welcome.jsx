@@ -6,27 +6,27 @@ export default function Welcome() {
     {
       title: "Terms and conditions",
       subtitle: "Recommended next step",
-      key: "terms",
+      key: "/d/terms",
     },
     {
       title: "CNIC Front side",
-      key: "cnic",
+      key: "/d/setup-account",
     },
     {
       title: "Upload picture",
-      key: "picture",
+      key: "/d/setup-profile",
     },
     {
       title: "Driving license",
-      key: "license",
+      key: "/d/setup-license",
     },
     {
       title: "Vehicle registration book",
-      key: "registration",
+      key: "/d/vehicle/registration",
     },
     {
       title: "Vehicle Insurance",
-      key: "insurance",
+      key: "/d/vehicle/insurance",
     },
   ];
 
@@ -47,7 +47,7 @@ export default function Welcome() {
 
           <div className="grid grid-cols-2 gap-4">
             {steps.map((step) => (
-              <Link to={"/d/"}>
+              <Link to={step.key}>
                 <button
                   key={step.key}
                   className="w-full p-4 bg-gray-50 rounded-lg text-left hover:bg-gray-100 transition-colors flex items-center justify-between"
