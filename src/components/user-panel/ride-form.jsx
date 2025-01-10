@@ -1,128 +1,147 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import DateTimeModal from "../user-panel/modals/time-date";
+import React, { useState, useRef, useEffect } from "react";
 
-const RideForm = ({ pageLink }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [pickupOption, setPickupOption] = useState("Pickup Now");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pickupTime, setPickupTime] = useState("");
+const RideForm = () => {
+  const [pickupLocation, setPickupLocation] = useState(null);
+  const [dropoffLocation, setDropoffLocation] = useState(null);
+  const [isMapsReady, setIsMapsReady] = useState(false);
+  const mapRef = useRef(null);
+  const directionsServiceRef = useRef(null);
+  const directionsRendererRef = useRef(null);
+  const mapInstance = useRef(null);
 
-  const handleSetPickupTime = (time) => {
-    setPickupTime(time);
-  };
+  useEffect(() => {
+    const loadGoogleMapsScript = () => {
+      if (!window.google) {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyC9NY_mMXuLB2oTMbZMG4vYO0Y0VqfbrlQ&libraries=places`;
+        script.async = true;
+        script.onload = initializeMap;
+        document.head.appendChild(script);
+      } else {
+        initializeMap();
+      }
+    };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+    const initializeMap = () => {
+      const google = window.google;
+      mapInstance.current = new google.maps.Map(mapRef.current, {
+        center: { lat: 51.505, lng: -0.09 },
+        zoom: 13,
+      });
 
-  const handleOptionSelect = (option) => {
-    setPickupOption(option);
-    pickupOption === "Pickup Now" && setIsModalOpen(true);
-    setIsDropdownOpen(false);
+      directionsServiceRef.current = new google.maps.DirectionsService();
+      directionsRendererRef.current = new google.maps.DirectionsRenderer();
+      directionsRendererRef.current.setMap(mapInstance.current);
+
+      initializeAutocomplete("pickup");
+      initializeAutocomplete("dropoff");
+
+      setIsMapsReady(true);
+    };
+
+    const initializeAutocomplete = (type) => {
+      const input = document.getElementById(`${type}-input`);
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo("bounds", mapInstance.current);
+
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry || !place.geometry.location) return;
+
+        const location = {
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng(),
+        };
+
+        if (type === "pickup") {
+          setPickupLocation(location);
+        } else {
+          setDropoffLocation(location);
+        }
+
+        mapInstance.current.setCenter(place.geometry.location);
+        mapInstance.current.setZoom(14);
+      });
+    };
+
+    loadGoogleMapsScript();
+  }, []);
+
+  useEffect(() => {
+    if (pickupLocation && dropoffLocation) {
+      calculateAndDisplayRoute();
+    }
+  }, [pickupLocation, dropoffLocation]);
+
+  const calculateAndDisplayRoute = () => {
+    const directionsService = directionsServiceRef.current;
+    const directionsRenderer = directionsRendererRef.current;
+
+    if (!directionsService || !directionsRenderer) {
+      console.error("Google Maps services not initialized yet.");
+      return;
+    }
+
+    directionsService.route(
+      {
+        origin: pickupLocation,
+        destination: dropoffLocation,
+        travelMode: window.google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (status === "OK") {
+          directionsRenderer.setDirections(result);
+        } else {
+          console.error(`Directions request failed due to ${status}`);
+        }
+      }
+    );
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg w-full max-w-lg mx-auto mt-8">
+    <div className="bg-white p-8 rounded-lg w-full max-w-6xl mx-auto mt-8">
       <h3 className="text-xl font-semibold mb-4">Get your ride</h3>
-      <form className="space-y-6">
-        {/* Pickup Location */}
-        <div className="flex items-center bg-gray-100 rounded-full px-4 py-4">
-          <img
-            src="/icons/ride/search.svg"
-            alt="Search Icon"
-            className="w-6 h-6 mr-3"
-          />
-          <input
-            type="text"
-            placeholder="Pickup location"
-            className="bg-transparent focus:outline-none w-full"
-          />
-        </div>
-
-        {/* Dropoff Location */}
-        <div className="flex items-center bg-gray-100 rounded-full px-4 py-4">
-          <img
-            src="/icons/ride/search.svg"
-            alt="Location Icon"
-            className="w-6 h-6 mr-3"
-          />
-          <input
-            type="text"
-            placeholder="Dropoff location"
-            className="bg-transparent focus:outline-none w-full"
-          />
-        </div>
-
-        {/* Pickup Time */}
-        <div className="relative">
-          <div
-            className="flex items-center bg-gray-100 rounded-full px-4 py-4 cursor-pointer"
-            onClick={toggleDropdown}
-          >
-            <img
-              src="/icons/ride/timer.svg"
-              alt="Clock Icon"
-              className="w-6 h-6 mr-3"
-            />
-            <span className="bg-transparent focus:outline-none w-full">
-              {pickupOption}
-            </span>
-            <img
-              src="/icons/ride/chevron.svg"
-              alt="Chevron Down"
-              className={`w-4 h-4 ml-2 ${
-                isDropdownOpen === false ? "rotate-180" : ""
-              }`}
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Input Fields */}
+        <form className="space-y-6 w-full lg:w-1/2">
+          <div className="flex items-center bg-gray-100 rounded-full px-4 py-4">
+            <input
+              id="pickup-input"
+              type="text"
+              placeholder="Enter pickup location"
+              className="bg-transparent focus:outline-none w-full"
             />
           </div>
 
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <div className="absolute bg-white shadow-lg rounded-lg mt-2 w-full max-w-xs right-0 z-10">
-              <ul className="py-2">
-                <li
-                  className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleOptionSelect("Pickup Now")}
-                >
-                  <img
-                    src="/icons/ride/timer.svg"
-                    alt="Pickup Icon"
-                    className="w-5 h-5 mr-3"
-                  />
-                  <span>Pickup Now</span>
-                </li>
-                <li
-                  className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleOptionSelect("Schedule Later")}
-                >
-                  <img
-                    src="/icons/ride/schedule.svg"
-                    alt="Schedule Icon"
-                    className="w-5 h-5 mr-3"
-                  />
-                  <span>Schedule Later</span>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
+          <div className="flex items-center bg-gray-100 rounded-full px-4 py-4">
+            <input
+              id="dropoff-input"
+              type="text"
+              placeholder="Enter dropoff location"
+              className="bg-transparent focus:outline-none w-full"
+            />
+          </div>
 
-        {/* Submit Button */}
-        <Link to={pageLink}>
           <button
-            type="submit"
-            className="w-full py-3 mt-4 bg-purple-500 text-white rounded-full text-lg hover:bg-purple-600"
+            type="button"
+            onClick={calculateAndDisplayRoute}
+            disabled={!isMapsReady}
+            className={`w-full py-3 text-lg rounded-full ${
+              isMapsReady
+                ? "bg-purple-500 text-white hover:bg-purple-600"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
           >
             Search
           </button>
-        </Link>
-      </form>
-      <DateTimeModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSetPickupTime={handleSetPickupTime}
-      />
+        </form>
+
+        {/* Map Section */}
+        <div
+          ref={mapRef}
+          className="w-full lg:w-1/2 h-64 lg:h-auto rounded-lg"
+        ></div>
+      </div>
     </div>
   );
 };

@@ -7,14 +7,9 @@ const Ride = () => {
   return (
     <div>
       <Header />
-      <div className="grid md:grid-cols-2 min-h-[500px] items-center p-4">
-        <RideForm pageLink={"/ride/selection"} />
+      <div className="grid md:grid-cols-1 min-h-[500px] items-center p-4">
+        <RideForm />
         {/* <Map /> */}
-        <img
-          src="/images/map-img.png"
-          alt=""
-          className="h-[422px] rounded-[12px]"
-        />
       </div>
       <Carousel />
     </div>
