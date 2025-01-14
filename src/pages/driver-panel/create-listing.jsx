@@ -3,11 +3,20 @@
 import { FiUpload } from "react-icons/fi";
 import Header from "../../components/driver-panel/header";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CreateListing() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
+  const [formData, setFormData] = useState({
+    vehicleName: "",
+    make: "",
+    model: "",
+    description: "",
+    price: "",
+  });
+
+  const navigate = useNavigate();
 
   const handleImageUpload = (event) => {
     const files = event.target.files;
@@ -21,8 +30,46 @@ export default function CreateListing() {
     setPreviewUrls((prev) => [...prev, ...newPreviewUrls]);
   };
 
-  const handleUploadClick = () => {
-    document.getElementById("imageUpload")?.click();
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    const token = "your-auth-token"; // Replace with the actual token
+    const url = "https://moovr-api.vercel.app/api/v1/cars/list"; // Backend API URL
+
+    const data = new FormData();
+    data.append("vehicleName", formData.vehicleName);
+    data.append("make", formData.make);
+    data.append("model", formData.model);
+    data.append("description", formData.description);
+    data.append("price", formData.price);
+    selectedImages.forEach((image, index) => {
+      data.append("image", image); // Sending images as files
+    });
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: data,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Car listing created successfully");
+        console.log(result);
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Error while creating the car listing:", error);
+      alert("An error occurred while creating the listing. Please try again.");
+    }
   };
 
   return (
@@ -35,7 +82,7 @@ export default function CreateListing() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Image Upload Section */}
           <div
-            onClick={handleUploadClick}
+            onClick={() => document.getElementById("imageUpload")?.click()}
             className="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center min-h-[400px] border-2 border-dashed border-gray-200 cursor-pointer relative overflow-hidden"
           >
             {previewUrls.length > 0 ? (
@@ -79,7 +126,10 @@ export default function CreateListing() {
                 </label>
                 <input
                   type="text"
+                  name="vehicleName"
                   placeholder="Vehicle"
+                  value={formData.vehicleName}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8257E9] focus:border-transparent"
                 />
               </div>
@@ -90,7 +140,10 @@ export default function CreateListing() {
                 </label>
                 <input
                   type="text"
+                  name="make"
                   placeholder="Vehicle make and model"
+                  value={formData.make}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8257E9] focus:border-transparent"
                 />
               </div>
@@ -102,7 +155,10 @@ export default function CreateListing() {
               </label>
               <textarea
                 rows={6}
+                name="description"
                 placeholder="Description"
+                value={formData.description}
+                onChange={handleInputChange}
                 className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8257E9] focus:border-transparent resize-none"
               />
             </div>
@@ -113,19 +169,21 @@ export default function CreateListing() {
               </label>
               <input
                 type="number"
+                name="price"
                 placeholder="Price"
+                value={formData.price}
+                onChange={handleInputChange}
                 className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-[#8257E9] focus:border-transparent"
               />
             </div>
 
-            <Link to={"/d/vehicle/edit"}>
-              <button
-                type="button"
-                className="w-full bg-primaryPurple text-white py-3 rounded-full hover:bg-[#7347d5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8257E9]"
-              >
-                Create
-              </button>
-            </Link>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="w-full bg-primaryPurple text-white py-3 rounded-full hover:bg-[#7347d5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8257E9]"
+            >
+              Create
+            </button>
           </div>
         </div>
       </main>

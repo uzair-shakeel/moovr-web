@@ -163,7 +163,7 @@ const App = () => {
           />
           <Route path="/d/vehicle/insurance" element={<VehicleInsurance />} />
           <Route path="/d/vehicle/create" element={<CreateListing />} />
-          <Route path="/d/vehicle/edit" element={<EditListing />} />
+          <Route path="/d/vehicle/edit/:id" element={<EditListing />} />
           <Route path="/d/vehicle/pass" element={<Pass />} />
           <Route path="/d/vehicle/bookings" element={<Bookings />} />
           <Route path="/d/vehicle/listings" element={<Listings />} />
