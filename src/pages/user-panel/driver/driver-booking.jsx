@@ -41,11 +41,11 @@ const DriverBooking = () => {
       <Header />
 
       {/* Main Content */}
-      <div className="p-6">
-        <div className="flex justify-between items-center">
+      <div className="max-w-[1180px] mx-auto p-6">
+        <div className="flex justify-between items-center mb-4">
           <div className="flex gap-3 items-center mb-4 hover:bg-gray-100 cursor-pointer py-2 px-3 rounded-[12px] w-fit">
             <BiArrowBack size={23} />
-            <h1 className="text-lg font-semibold ">Driver Booking</h1>
+            <h1 className="text-lg font-semibold">Driver Booking</h1>
           </div>
           <div className="relative">
             {/* Dropdown Button */}
@@ -92,7 +92,7 @@ const DriverBooking = () => {
             )}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center">
           {Array.from({ length: 12 }).map((_, index) => (
             <DriverCard
               key={index}

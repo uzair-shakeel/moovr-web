@@ -13,7 +13,7 @@ export default function AccountType() {
           />
         </div>
         {/* Top left curve */}
-        <div className="absolute top-0 right-0 ">
+        <div className="hidden lg:block absolute top-0 right-0 ">
           <img
             src="/driver/auth/welcome.svg"
             alt=""
