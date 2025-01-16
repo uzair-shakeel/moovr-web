@@ -20,17 +20,13 @@ export default function EditListing() {
     console.log("Fetching car details for ID:", id);
     try {
       setIsLoading(true);
-      const token = localStorage.getItem("auth_token");
-  
-      if (!token) {
-        throw new Error("Authorization token is missing.");
-      }
+      const dummyToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODNmNTY1MzEzNTVjMDY5OGViZDE1OSIsInBob25lIjoiKzkyMDAwMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNjcwMTMwMCwiZXhwIjoxNzM3OTk3MzAwfQ.hy2U2MUxXhXpf5iIhxKzsBG71isJGm9JAs0GQCSL4vM"; // Replace this with your actual or dummy token for testing
   
       const response = await axios.get(
-        `https://moovr-api.vercel.app/api/v1/cars/listings/${id}`,
+        `https://moovr-api.vercel.app/api/v1/cars/list/${id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${dummyToken}`,
           },
         }
       );
@@ -48,8 +44,7 @@ export default function EditListing() {
     } finally {
       setIsLoading(false);
     }
-  };
-  
+};
 
   // Update car details API call
   const updateCarDetails = async () => {
@@ -66,7 +61,7 @@ export default function EditListing() {
       };
 
       const response = await axios.put(
-        `https://moovr-api.vercel.app/api/v1/cars/listings/${id}`,
+        `https://moovr-api.vercel.app/api/v1/cars/list/${id}`,
         updatedDetails,
         {
           headers: {

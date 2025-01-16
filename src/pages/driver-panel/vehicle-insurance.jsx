@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { FiUpload } from "react-icons/fi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function VehicleInsurance() {
   const [formData, setFormData] = useState({
@@ -31,7 +33,6 @@ export default function VehicleInsurance() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create FormData object to handle file upload
     const form = new FormData();
     form.append("documentType", "vehicleInsurance");
     form.append("insuranceName", formData.insurerName);
@@ -46,7 +47,8 @@ export default function VehicleInsurance() {
         method: "POST",
         body: form,
         headers: {
-          "Authorization": "Bearer +923171150595", // Dummy token added here
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODNmNTY1MzEzNTVjMDY5OGViZDE1OSIsInBob25lIjoiKzkyMDAwMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNjcwMTMwMCwiZXhwIjoxNzM3OTk3MzAwfQ.hy2U2MUxXhXpf5iIhxKzsBG71isJGm9JAs0GQCSL4vM",
         },
       });
 
@@ -54,15 +56,16 @@ export default function VehicleInsurance() {
         throw new Error("Failed to upload the document");
       }
 
-      alert("Document uploaded successfully!");
+      toast.success("Document uploaded successfully!");
     } catch (error) {
       console.error(error);
-      alert("An error occurred while uploading the document.");
+      toast.error("An error occurred while uploading the document.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
       <div className="w-full max-w-[1180px] bg-white rounded-2xl shadow-md p-8 py-12 relative overflow-hidden">
         {/* Purple curved accent */}
         <div className="absolute top-0 right-0">
