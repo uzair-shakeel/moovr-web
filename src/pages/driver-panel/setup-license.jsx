@@ -12,16 +12,36 @@ export default function SetupLicense() {
     setFile(e.target.files[0]);
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     if (!file) {
       alert("Please upload a file before confirming.");
       return;
     }
-    alert("File uploaded successfully!");
+
+    const formData = new FormData();
+    formData.append("documentType", "drivingLicense"); // Replace with dynamic document type
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("https://moovr-api.vercel.app/api/v1/driver/upload-document", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert("File uploaded successfully!");
+        // Redirect or update UI as needed
+      } else {
+        alert("File upload failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("An error occurred while uploading the file.");
+    }
   };
 
   return (
-    <div className="w-full  min-h-screen  flex flex-col items-center">
+    <div className="w-full min-h-screen flex flex-col items-center">
       {/* Header */}
       <div className="w-full">
         <Header />
@@ -39,8 +59,7 @@ export default function SetupLicense() {
             Driving License
           </h2>
           <p className="text-sm text-gray-600 text-center mb-6">
-            Upload your high quality picture, where your face is clearly
-            visible.
+            Upload your high quality picture, where your face is clearly visible.
           </p>
 
           {/* File Upload */}
@@ -75,4 +94,3 @@ export default function SetupLicense() {
     </div>
   );
 }
-

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const navigate = useNavigate();
 
   const handlePhoneNumberChange = (isValid, value, countryData) => {
     setPhoneNumber(value);
@@ -12,8 +13,14 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    // Dummy login process
     console.log("Phone Number:", phoneNumber);
+  localStorage.setItem("auth_token", phoneNumber);  // Assuming phoneNumber contains the token
+
+    // After login, navigate to /d/vehicle/listings with a dummy token
+    navigate("/d/setup-license", {
+      state: { token: "+923171150595" } // Dummy token
+    });
   };
 
   return (
@@ -30,14 +37,15 @@ const Login = () => {
               fieldId="phoneNumber"
               onPhoneNumberChange={handlePhoneNumberChange}
             />
-            <Link to={"/verification"}>
               <button
+                  onClick={handleSubmit} // Call the handleSubmit function here
+
                 type="submit"
                 className="w-full py-2 mt-3 bg-purple-500 text-white rounded-full hover:bg-purple-600"
               >
                 Continue
               </button>
-            </Link>
+          
           </form>
           <div className="text-center mt-4">
             <p>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../pages/user-panel/auth/login";
 import Signup from "../pages/user-panel/auth/register";
@@ -89,6 +90,8 @@ import DriverActivity from "../pages/driver-panel/activity/activity.jsx";
 import Dashboard from "../pages/driver-panel/dashboard.jsx";
 
 const App = () => {
+  const [userData, setUserData] = useState({});
+
   return (
     <Router>
       <div>
@@ -149,10 +152,14 @@ const App = () => {
           {/* Driver Panel Routes are here */}
           <Route path="/d/signup" element={<DriverRegister />} />
           <Route path="/d/verification" element={<DriverVerification />} />
-          <Route path="/d/name" element={<DriverName />} />
-          <Route path="/d/earn" element={<Earn />} />
+          {/* <Route path="/d/name" element={<DriverName />} /> */}
+          <Route path="/d/name" element={<DriverName setUserData={setUserData} />} />
+
+          {/* <Route path="/d/earn" element={<Earn />} setUserData={setUserData} /> */}
+          <Route path="/d/earn" element={<Earn setUserData={setUserData} />} />
+
           <Route path="/d/earn-types" element={<EarnTypes />} />
-          <Route path="/d/vehicle-types" element={<VehicleType />} />
+          <Route path="/d/vehicle-types"  element={<VehicleType setUserData={setUserData} />}/>
           <Route path="/d/account-types" element={<AccountType />} />
           <Route path="/d/welcome" element={<Welcome />} />
           <Route path="/d/" element={<Go />} />

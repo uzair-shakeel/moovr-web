@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function VehicleTypes() {
+export default function VehicleTypes({userData}) {
   const vehicles = [
     {
       title: "MoovR X",
@@ -17,6 +17,21 @@ export default function VehicleTypes() {
     },
   ];
 
+    const handleSubmit = async () => {
+      const response = await fetch("https://moovr-api.vercel.app/api/v1/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+  
+      if (response.ok) {
+        alert("Registration successful!");
+      } else {
+        alert("Error occurred during registration.");
+      }
+    };
+  
+  
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-[1180px] bg-white rounded-2xl shadow-md p-8 relative overflow-hidden">
@@ -55,9 +70,12 @@ export default function VehicleTypes() {
                 </button>
               </Link>
             ))}
+                  <button onClick={handleSubmit}>Submit</button>
+
           </div>
         </div>
       </div>
     </div>
   );
 }
+
