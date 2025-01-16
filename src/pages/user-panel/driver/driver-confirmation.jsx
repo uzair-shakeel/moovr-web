@@ -14,7 +14,7 @@ const DriverConfirmation = () => {
       <Header />
 
       {/* Main Content */}
-      <div className="relative min-h-[800px] h-screen w-full">
+      <div className=" relative min-h-[800px] h-screen w-full">
         {/* Map Background */}
         <div className="absolute inset-0 w-full h-full">
           <img
@@ -25,7 +25,7 @@ const DriverConfirmation = () => {
         </div>
 
         {/* Floating Card Section */}
-        <div className="absolute top-20 left-6  space-y-4 ">
+        <div className=" absolute top-20 left-6  space-y-4 ">
           <button
             onClick={() => navigate(-1)}
             className="flex gap-3 items-center mb-8 cursor-pointer py-2 px-3 rounded-[12px] w-fit hover:bg-gray-100"
@@ -169,7 +169,7 @@ const DriverConfirmation = () => {
 
             <Link
               to={"/driver/start"}
-              className="bg-purple-500 text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600"
+              className="bg-purple-500 text-center text-white py-3 w-full rounded-full text-lg font-semibold hover:bg-purple-600"
             >
               Confirm
             </Link>

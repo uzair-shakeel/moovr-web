@@ -29,7 +29,7 @@ export default function EarnTypes() {
         </div>
 
         {/* Bottom right curve */}
-        <div className="absolute bottom-0 right-0 h-full">
+        <div className="hidden lg:block absolute bottom-0 right-0 h-full">
           <img
             src="/driver/driver-bg-img-1.svg"
             alt=""

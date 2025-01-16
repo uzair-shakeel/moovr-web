@@ -13,7 +13,7 @@ const ConfirmCar = () => {
       <Header />
 
       {/* Main Content */}
-      <div className="p-6">
+      <div className="max-w-[1180px] mx-auto p-6">
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
