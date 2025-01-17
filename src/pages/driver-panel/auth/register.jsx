@@ -1,34 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import IntlTelInput from "react-intl-tel-input";
-import "react-intl-tel-input/dist/main.css";
-import { Link } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const DriverRegister = () => {
   const location = useLocation();
   const { role } = location.state || { role: "driver" }; // Default to driver
   const [phoneNumber, setPhoneNumber] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Selected Role:", role); // Log the selected role
   }, [role]);
 
-  const handlePhoneNumberChange = (isValid, value, countryData) => {
-    setPhoneNumber(value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Initialize userData as an object
     let userData = {
       phone: phoneNumber,
     };
 
-    // Save userData to localStorage
     localStorage.setItem("userData", JSON.stringify(userData));
-
     navigate("/d/verification");
   };
 
@@ -38,13 +30,12 @@ const DriverRegister = () => {
         <div className="p-8 w-96 mx-auto">
           <h2 className="text-2xl font-bold mb-4">Enter your mobile number</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <IntlTelInput
+            <PhoneInput
+              country={"ng"}
               preferredCountries={["ng", "us", "gb"]}
-              defaultCountry={"ng"}
-              containerClassName="intl-tel-input w-full"
-              inputClassName="w-full border-2 border-gray-200 rounded-full p-2 focus:outline-none"
-              fieldId="phoneNumber"
-              onPhoneNumberChange={handlePhoneNumberChange}
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+              inputClass="w-full border-2 border-gray-200 rounded-full p-2 focus:outline-none"
             />
             <button
               type="submit"
