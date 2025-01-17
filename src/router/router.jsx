@@ -32,7 +32,7 @@ import BillDetails from "../pages/user-panel/bill/bill-details";
 import Activity from "../pages/user-panel/activity/activity";
 import PrivacyPolicy from "../pages/user-panel/static/privacy-policy";
 import Languages from "../pages/user-panel/static/languages";
-import Settings from "../pages/user-panel/static/Settings";
+import Settings from "../pages/user-panel/static/settings.jsx";
 import Details from "../pages/user-panel/reserve/details";
 import Successful from "../pages/user-panel/reserve/successful";
 import Reserve from "../pages/user-panel/reserve/reserve";
@@ -153,13 +153,19 @@ const App = () => {
           <Route path="/d/signup" element={<DriverRegister />} />
           <Route path="/d/verification" element={<DriverVerification />} />
           {/* <Route path="/d/name" element={<DriverName />} /> */}
-          <Route path="/d/name" element={<DriverName setUserData={setUserData} />} />
+          <Route
+            path="/d/name"
+            element={<DriverName setUserData={setUserData} />}
+          />
 
           {/* <Route path="/d/earn" element={<Earn />} setUserData={setUserData} /> */}
           <Route path="/d/earn" element={<Earn setUserData={setUserData} />} />
 
           <Route path="/d/earn-types" element={<EarnTypes />} />
-          <Route path="/d/vehicle-types"  element={<VehicleType setUserData={setUserData} />}/>
+          <Route
+            path="/d/vehicle-types"
+            element={<VehicleType setUserData={setUserData} />}
+          />
           <Route path="/d/account-types" element={<AccountType />} />
           <Route path="/d/welcome" element={<Welcome />} />
           <Route path="/d/" element={<Go />} />
