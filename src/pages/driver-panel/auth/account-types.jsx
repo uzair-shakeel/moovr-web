@@ -1,11 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AccountType({ setUserData }) {
+export default function AccountType() {
   const navigate = useNavigate();
 
-  const handleSelect = (serviceType) => {
-    setUserData((prev) => ({ ...prev, serviceType }));
+  const handleSelect = (driverType) => {
+    const userData = JSON.parse(localStorage.getItem("userData")) || {};
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ ...userData, driverType })
+    );
     navigate("/d/earn-types");
   };
 
@@ -56,13 +60,6 @@ export default function AccountType({ setUserData }) {
               <p className="text-sm text-gray-500">
                 Business account for companies or fleet managers.
               </p>
-            </button>
-
-            <button
-              onClick={() => navigate("/d/earn-types")}
-              className="w-full mt-6 bg-primaryPurple text-white py-3 rounded-lg hover:bg-[#7347d5] transition-colors"
-            >
-              Next
             </button>
           </div>
         </div>

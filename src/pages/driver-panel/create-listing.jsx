@@ -4,6 +4,7 @@ import { FiUpload } from "react-icons/fi";
 import Header from "../../components/driver-panel/header";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function CreateListing() {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -36,8 +37,17 @@ export default function CreateListing() {
   };
 
   const handleSubmit = async () => {
-    const token = "your-auth-token"; // Replace with the actual token
-    const url = "https://moovr-api.vercel.app/api/v1/cars/list"; // Backend API URL
+    console.log("Form data state:", formData);
+    console.log("Selected images:", selectedImages);
+
+    const url = "https://moovr-api.vercel.app/api/v1/cars/list";
+    const token = localStorage.getItem("token");
+
+    // Check if inputs are filled
+    if (!formData.vehicleName || !formData.make || !formData.price) {
+      alert("Please fill all required fields.");
+      return;
+    }
 
     const data = new FormData();
     data.append("vehicleName", formData.vehicleName);
@@ -45,30 +55,30 @@ export default function CreateListing() {
     data.append("model", formData.model);
     data.append("description", formData.description);
     data.append("price", formData.price);
-    selectedImages.forEach((image, index) => {
-      data.append("image", image); // Sending images as files
+
+    selectedImages.forEach((image) => {
+      data.append("image", image);
     });
 
+    console.log("Final FormData:", Array.from(data.entries())); // Log FormData for debugging
+
     try {
-      const response = await fetch(url, {
-        method: "POST",
+      const response = await axios.post(url, data, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        body: data,
+        withCredentials: true,
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        alert("Car listing created successfully");
-        console.log(result);
-      } else {
-        alert(`Error: ${result.message}`);
-      }
+      alert("Car listing created successfully");
+      console.log(response.data);
     } catch (error) {
       console.error("Error while creating the car listing:", error);
-      alert("An error occurred while creating the listing. Please try again.");
+      alert(
+        error.response?.data?.message ||
+          "An error occurred while creating the listing. Please try again."
+      );
     }
   };
 

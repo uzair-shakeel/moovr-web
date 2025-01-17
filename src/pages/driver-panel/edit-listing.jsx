@@ -17,21 +17,21 @@ export default function EditListing() {
 
   // Fetch car details from API
   const fetchCarDetails = async () => {
-    console.log("Fetching car details for ID:", id);
     try {
       setIsLoading(true);
-      const dummyToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODNmNTY1MzEzNTVjMDY5OGViZDE1OSIsInBob25lIjoiKzkyMDAwMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNjcwMTMwMCwiZXhwIjoxNzM3OTk3MzAwfQ.hy2U2MUxXhXpf5iIhxKzsBG71isJGm9JAs0GQCSL4vM"; // Replace this with your actual or dummy token for testing
-  
+      const dummyToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODNmNTY1MzEzNTVjMDY5OGViZDE1OSIsInBob25lIjoiKzkyMDAwMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNjcwMTMwMCwiZXhwIjoxNzM3OTk3MzAwfQ.hy2U2MUxXhXpf5iIhxKzsBG71isJGm9JAs0GQCSL4vM"; // Replace this with your actual or dummy token for testing
+
       const response = await axios.get(
-        `https://moovr-api.vercel.app/api/v1/cars/list/${id}`,
+        `https://moovr-api.vercel.app/api/v1/cars/list/677e53543421ee75486fd748`,
         {
           headers: {
             Authorization: `Bearer ${dummyToken}`,
           },
         }
       );
-  
-      console.log("API Response:", response.data);
+
+      console.log("API Response:", response);
       if (response.data?.carListing) {
         setCarDetails(response.data.carListing);
         setAvailability(response.data.carListing.status);
@@ -44,10 +44,13 @@ export default function EditListing() {
     } finally {
       setIsLoading(false);
     }
-};
+  };
 
   // Update car details API call
   const updateCarDetails = async () => {
+    const dummyToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODNmNTY1MzEzNTVjMDY5OGViZDE1OSIsInBob25lIjoiKzkyMDAwMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNjcwMTMwMCwiZXhwIjoxNzM3OTk3MzAwfQ.hy2U2MUxXhXpf5iIhxKzsBG71isJGm9JAs0GQCSL4vM"; // Replace this with your actual or dummy token for testing
+
     try {
       setIsLoading(true);
       const token = localStorage.getItem("auth_token");
@@ -65,7 +68,7 @@ export default function EditListing() {
         updatedDetails,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${dummyToken}`,
           },
         }
       );
@@ -119,7 +122,9 @@ export default function EditListing() {
         <div className="space-y-6">
           {/* Vehicle Name Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">Vehicle Name</label>
+            <label className="block text-sm font-medium mb-1">
+              Vehicle Name
+            </label>
             <input
               type="text"
               value={carDetails?.vehicleName || ""}
@@ -171,7 +176,9 @@ export default function EditListing() {
 
           {/* Description Textarea */}
           <div>
-            <label className="block text-sm font-medium mb-1">Description</label>
+            <label className="block text-sm font-medium mb-1">
+              Description
+            </label>
             <textarea
               value={carDetails?.description || ""}
               onChange={(e) =>
