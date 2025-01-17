@@ -9,4 +9,9 @@ export default defineConfig({
       external: ["react-intl-tel-input"],
     },
   },
+  resolve: {
+    alias: {
+      'react-intl-tel-input': 'react-intl-tel-input/lib/index.js', // Adjust path if needed
+    },
+  },
 });
